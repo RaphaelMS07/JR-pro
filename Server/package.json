@@ -1,0 +1,19 @@
+{
+  "name": "jrnoded",
+  "version": "1.0.0",
+  "description": "feito pra JR ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jr"
+  ],
+  "author": "Raphael Monteiro da Silva",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3",
+    "sqlite3": "^4.2.0"
+  }
+}

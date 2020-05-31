@@ -1,0 +1,378 @@
+/* global */
+.hidden{
+    display: none;
+}
+.radius{ /* responsavel pelas pontas arredondadas dos textos dos formularios*/
+    
+    border-radius: 5px;
+    border: #000000 1px solid;
+    padding-left: 5px;
+}
+
+td {
+    text-align: center;    
+    border-left: rgb(223, 223, 223) 1px solid;
+    /* font-size: 15px; */
+}
+
+main{
+    width: 90%;
+    margin: 5px auto;
+}
+
+.class-st {
+    width: 10px;
+}
+
+
+/* REFERENTE A RESOLUÇÃO HORIZONTAL 1024 */
+/* sobre o cabeçalho da tabela */
+th {
+    width: 500px;
+    height: 20px;
+    vertical-align: middle;   
+    color: white;
+    background: rgb(12, 0, 9);   
+    transition: all 0.1s;
+    
+
+}
+th:hover{
+    background: rgb(46, 0, 34);
+    cursor: default;
+}
+th:active{
+    background: rgb(109, 0, 80);
+}
+
+.selecionado{
+    background: rgb(46, 0, 34);
+}
+.ponta_esquerda{
+    border-radius: 8px 0 0 0;
+    
+}
+.ponta_direita{
+    border-radius: 0px 8px 0 0;
+    
+}
+
+
+/* sobre as linhas */
+.linha{
+    font-size: 15px;
+    /* font-size: 17px; pra 1080p  */
+    background: #CCCCCC;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+.linha:nth-child(2n){
+    font-size: 15px;    
+    /* font-size: 17px; pra 1080p  */
+    line-height: 1.4;
+    background: #EEEEEE;
+    white-space: nowrap; /* isso evita quebra de linha */    
+}
+.linha:hover{ 
+    line-height: 1.3;   
+    font-size: 19px;
+    cursor: default;
+    transition: all 0.15s;   
+}
+.linha:hover > .orçado{
+    background-color: rgb(255, 244, 145);
+    /* border: rgba(0, 0, 0, 0.267) 1px solid; */
+}
+.linha:hover >.Orçado{
+    background-color:rgb(138, 201, 252);
+
+}
+.linha:hover >.Aprovado{
+    background-color: rgb(171, 255, 149);
+
+}
+.linha:hover >.aprovado{
+    background-color: rgb(87, 87, 87);;
+
+}
+.linha:hover >.Concluído{
+    background-color: rgb(250, 128, 112);
+
+}
+.linha:hover >.Retirado{
+    background-color: rgb(210, 142, 255);
+
+}
+
+
+.nano{
+    width: 0.55%;
+    background: rgb(0, 0, 0);
+    border: rgba(0, 0, 0, 0.075) 1px solid;
+}
+.micro{
+    width: 6%;
+    
+}
+.pequeno{
+    width: 10%;
+    
+    white-space: nowrap; 
+    overflow: hidden; /* isso aqui é pra esconder textos grandes */
+    text-overflow: ellipsis;
+    max-width: 50px;
+}
+.medio{
+    width: 12%;    
+    white-space: nowrap; 
+    overflow: hidden; /* isso aqui é pra esconder textos grandes */
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+.grande{
+    width: 18%;
+    white-space: nowrap; 
+    overflow: hidden; /* isso aqui é pra esconder textos grandes */
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+.macro{
+    width: 23%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;    
+}
+
+
+/* sobre cores de status na coluna st */
+.orçado{ /* Esse é para o não_orçado */
+    background-color: rgb(255, 235, 56);
+    /* background: linear-gradient(rgb(255, 235, 56), ) */
+}
+
+.Orçado{
+    background-color:rgb(87, 174, 245); 
+}
+.Aprovado{
+    background-color: rgb(104, 252, 67);
+}
+.aprovado{
+    background-color: rgb(41, 41, 41);
+}
+.Concluído{
+    background-color: rgb(252, 89, 67);
+}
+.Retirado{
+    background-color: rgb(184, 92, 245);
+}
+/* isso só vai aparecer na lista de pesquisa */
+.abandonado_concluído{ 
+    background-color: rgb(77, 25, 19);
+}
+.abandonado_orçado{
+    background-color:rgb(25, 58, 83);
+}
+
+
+/* Sobre a janela de info de clientes */
+.miniwindow{
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    width: 0 auto;
+    background: white;
+    height: 6px;
+    width: 7px;   
+    z-index: 1;
+}
+.window{
+    position: relative;
+    
+    left: -375px;
+    width: 0 auto;
+    background:  rgba(15, 15, 15, 0.945);
+    height: 690px;
+    width: 750px;   
+    z-index: 1;
+
+    border-radius: 10px 10px 10px 10px;
+    /* border: rgb(218, 0, 119) 1px solid; */
+    border: rgb(255, 235, 56) 1px solid;
+    /* border: #01abe8 1px solid; */
+
+    box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.329);
+    transition: all 0.1s;    
+
+}
+.titulo_window{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 15px;
+    margin-bottom: 5px;
+}
+
+.form_window{
+    margin: 15px 15px;   
+    
+}
+.caixa_texto_window{
+    margin: 8px 0;
+    font-size: 16px;
+    font-weight: bold;   
+}
+.caixa_texto_status{
+    margin: 8px 0;
+    font-size: 18px;
+    background-color:rgb(230, 228, 228);
+    /* text-align: center;   */
+    
+    font-weight: bold;
+}
+.legenda_window{
+    margin-left: 2px;
+    margin-top: 3px;
+    color: #ffffff;
+    font-size: 17px;
+}
+
+
+.grid1{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    align-items: center;
+    grid-gap: 5px;    
+}
+.grid1 input{
+    width: 95%;
+}
+
+.grid2{
+    display: grid;
+    grid-template-columns: 30% 70%;    
+    grid-gap: 13px;    
+}
+.grid2 input{
+    width: 95%;      
+}
+
+.grid3{ /* legenda */
+    display: grid;
+    grid-template-columns: 50% 25% 20%;    
+    grid-gap: 14px;    
+}
+.grid3 label{ /* legenda */
+    
+    
+    margin-top: 10px; 
+    margin-left: 1px;
+}
+.grid4{
+    display: grid;
+    grid-template-columns: 50% 25% 20%;    
+    grid-gap: 15px;    
+}
+.grid4 input{
+    width: auto;
+    margin-top: 5px;    
+}
+
+.grid5{ /* legenda */
+    display: grid;
+    grid-template-columns: 65% 10% 20%;    
+    grid-gap: 14px;    
+}
+
+.grid6{
+    display: grid;
+    grid-template-columns: 65% 10% 20%;    
+    grid-gap: 15px;    
+}
+.grid6 input{
+    width: auto;
+    margin-top: 5px;   
+}
+
+.grid7{
+    display: grid;
+    grid-template-columns: 65% 10% 20%;    
+    grid-gap: 15px;    
+}
+.grid8 input{
+    width: 98%;
+    margin-top: 5px;       
+}
+
+/* sobre select de status */
+.select_box{
+    background-color: #f1f1f1;
+    margin: 6px 0;
+    font-size: 16px;
+    font-weight: 700;      
+}
+
+#aguardando_orcamento{
+    font-weight: 700;
+    color: rgb(36, 36, 0);
+    background-color: rgb(255, 235, 56);  
+}
+
+#orcado{
+    font-weight: 700;    
+    color: rgb(6, 14, 24);
+    background-color: rgb(87, 174, 245);
+    
+}
+#aprovado{
+    font-weight: 700;    
+    color: rgb(9, 24, 6);
+    background-color: rgb(104, 252, 67);
+    
+}
+#nao_aprovado{
+    font-weight: 700;    
+    color: rgb(208, 211, 208);
+    background-color: rgb(41, 41, 41);
+    
+}
+
+#concluido{
+    font-weight: 700;    
+    color: rgb(24, 10, 6);
+    background-color: rgb(252, 89, 67);
+    
+}
+#retirado{
+    font-weight: 700;    
+    color: rgb(14, 5, 20);
+    background-color: rgb(184, 92, 245);
+    
+}
+
+/* sobre caixa de orçamento */
+.orcamento{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.caixa_orcamento{
+    margin-top: 5px;
+    display: block;
+    font-size: 19px;
+    font-family:Arial;    
+}
+.butt{
+    margin: 5px 10px;
+}
+.botoes{
+    position: relative;
+    left: 425px;
+}
+.butt:hover{
+    /* background: rgb(20, 20, 20); */
+    background: linear-gradient(black, black, rgb(17, 17, 17));  
+}
+.butt:active{    
+    background: rgb(32, 32, 32);
+}

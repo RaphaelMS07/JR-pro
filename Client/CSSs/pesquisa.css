@@ -1,0 +1,88 @@
+/* REFERENTE A RESOLUÇÃO HORIZONTAL 1024 */
+/* sobre pesquisa equip */
+.legenda{
+    color: white;
+    font-size: 19px;   
+    margin: 0 5px 0 45px;
+    transition: all 0.2s;
+}
+.pesquisa_box{
+    margin-left: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: 56%;
+    left:  0;
+    height: 20px;
+    font-size: 19px;
+    transition: all 0.2s;
+}
+.grid_form{    
+    margin: 10px;
+    position: relative;
+    left: 27%;
+    padding: 9px 0;
+    background-color: rgb(0, 0, 0);
+    width: 660px;
+    border-radius: 50px;
+    border: rgb(255, 0, 140) solid 1px;
+    transition: all 0.2s;
+}
+.grid_form:hover{
+    background-color: rgb(22, 0, 12);
+}
+.opt_pesquisa-class{
+    font-size: 19px;
+    padding-left: 2px;
+    background-color: rgb(233, 230, 230);
+    transition: all 0.2s;
+}
+.semitransform{
+    margin: 10px;    
+    position: relative;
+    left: 55%;
+    padding: 9px 0;
+    background-color: rgb(22, 0, 12);
+    width: 400px;
+    border-radius: 50px;
+    border: rgb(255, 0, 140) solid 1px;
+    transition: all 0.2s;
+
+}
+.semitransform:active{
+    background-color: rgb(44, 0, 24) ;
+}
+.tipo_pesquisa{    
+    bottom: 2px;
+    color: rgb(206, 6, 116);
+    font-size: 22px;
+    padding: 3px 0 ;
+    font-weight: 700;
+    text-align: center;   
+}
+
+.untransform{
+    margin: 10px;
+    display: inline-flex;
+    position: relative;
+    left: 94%;
+    padding: 7px 11px;
+    background-color: rgb(0, 0, 0);
+    width: 2%;
+    border-radius: 50px;
+    border: rgb(255, 0, 140) solid 3px;
+    transition: all 0.2s;
+}
+
+
+img{   
+    position: relative;
+    right: 2px;
+    transition: all 0.3s;
+}
+.invisivel{
+    opacity : 0.0;
+    position: relative;
+    top: 10px;
+    transition: all 0.3s;
+     
+}

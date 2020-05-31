@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Orçamentos ativos</title>
+        <link rel="stylesheet" href="CSSs/reset.css">
+        <link rel="stylesheet" href="CSSs/style.css">
+        <link rel="stylesheet" href="CSSs/entrada.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="cabecalho">
+                <img class="logo" src="Imagens/logo100p.png" title="JR">                
+                <ul class="plista">
+                    <li><a href="lista.html"> Orçamentos </a></li>
+                    <li id="entrada"><a href="index.html">  Entrada  </a></li>                    
+                    <li id="pesquisar"><a href="pesquisar.html"> Pesquisar </a></li>
+                    <li id="estatistica"><a href="estatistica.html">Estatísticas</a></li>
+                    <li id="impressão"><a href=".html">impressão</a></li>                      
+                </ul>
+            </div>            
+        </header>
+        <main>
+            <span class=borderer>espaço</span>
+            <button class="fechar1 fechar hidden">x</button>            
+            <form class="form1" id="f1" onsubmit="formController.adicionarCliente(event)">
+                                             
+                <div class="form_cliente">
+                    <label for="nome" class="legenda" >Nome completo </label>
+                    <input type="text" id="nome" class="caixa_texto radius" required autocomplete="off">
+
+                    <label for="Telefone" class="legenda">Celular</label>
+                    <input type="tel" id="telefone" class="caixa_texto radius" required autocomplete="off" placeholder="(21)99999-9999">
+                    
+                    <label for="Email" class="legenda"> Email</label>
+                    <input type="email" id="email" placeholder="Opcional" class="caixa_texto radius" autocomplete="off">
+
+                    <label for="Endereço" class="legenda">Endereço</label>
+                    <input type="text" id="endereco" placeholder="Opcional" class="caixa_texto radius" autocomplete="off">
+
+                    <input type="submit" id='submeter' value="Cadastrar" class="butt butt_azul hidden" >
+                    
+                </div>             
+            </form>
+            <span class=borderer>espaço</span>
+            <button class="fechar2 fechar hidden">x</button>
+            <form class="form2" onsubmit="formController.adicionarEquip(event)"> 
+                <div class="form_maquina" id="form_maquina">
+                    <div class='div_pesquisa'>
+                        <label for="nome" class="legenda2">Nome do cliente </label>
+                        <input type="text" id="nome2" class="caixa_texto2 radius"  placeholder="Pesquisar por nome" autocomplete="off">
+                        <div id='divPesquisa' class="hidden"></div>
+                    </div>
+                    
+                    <div class = "sub_div hidden">
+                        <label for="Telefone" class="legenda_especial" id="tel" autocomplete="off">Telefone</label>
+                        <input type="tel" id="telefone2" class="caixa_texto_menor radius" >
+
+                        <label for="id" class="legenda_especial" id="ID">ID</label>
+                        <input type="tel" id="id" class="caixa_texto_menor radius" readonly="true" required placeholder="Auto">
+                    </div>
+                                        
+                    <label for="modelo" class="legenda2">Modelo</label>
+                    <input type="text" id="modelo" required class="caixa_texto2 radius" required autocomplete="off">
+
+                    <label for="serial" class="legenda2">N° serial</label>
+                    <input type="text" id="serial" class="caixa_texto2 radius" placeholder="Opcional" autocomplete="off">
+
+                    <label for="defeito" class="legenda2">Defeito alegado</label>
+                    <textarea name="nometexto" id="defeito" cols="30" rows="3" class="caixa_texto2 radius"></textarea>                    
+
+                    <label for="observ" class="legenda2">Observações</label>
+                    <textarea name="nometexto" id="observ" cols="30" rows="3" class="caixa_texto2 radius" placeholder="Pergunta se tem senha!"></textarea>
+                    
+                </div>
+                <div class="checkbox_retorno">
+                    <label><input type="checkbox" name="cadastrado">Maquina recorrente?</label>
+                    <input type="submit" id='submeter2' value="Cadastrar" class='butt butt_amarelo'>
+                </div>               
+            </form>
+        </main>
+        
+        <script src="Scripts/View/view.js"></script> 
+        <script src="Scripts/view/formulario-react.js"></script>         
+        <script src="Scripts/View/desenha-pesquisa-dropdown.js"></script>              
+        <script src="Scripts/Model/formulario.js"></script>
+        <script src="Scripts/Model/listaClientes.js"></script>
+        <script src="Scripts/Model/formulario-completo.js"></script>
+        <script src="Scripts/Controller/formController.js"></script>
+        <script src="Scripts/Controller/listaController.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+        <script>
+            $('#telefone').mask('(99)99999-9999')
+            var formController = new FormController();
+            formController.pesquisar()          
+        </script>
+    </body>
+</html>

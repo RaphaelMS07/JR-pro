@@ -1,0 +1,82 @@
+/* REFERENTE A RESOLUÇÃO HORIZONTAL 1024 */
+body{
+    font-family: 'Roboto', sans-serif;
+}
+header{
+    height: 120px;
+    width: 100%;
+    /* border: 0 auto;    */
+    background: #222222;    
+    color: white;
+    font-weight: bold;    
+}
+
+.logo{
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;    
+}
+
+h1 {
+    margin-left: 73px;
+    padding-bottom: 25px;
+}
+a{
+    padding: 11px 30px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: rgb(255, 255, 0);
+}
+
+
+.plista li{
+    position: relative;
+    left: -7%;    
+    display: inline;    
+    margin-left: 20px;    
+    padding: 10px 10px;
+    font-size: 21px;
+    background: rgba(0, 0, 0, 0.781);
+    color: rgb(223, 223, 5);
+    cursor: pointer;
+    transition: 0.3s all;
+    border-radius: 7px;         
+}
+
+.plista #entrada{
+    padding: auto 32px;
+}
+.plista #estatistica{
+    padding: auto 40px;
+}
+.plista #pesquisar{
+    padding: auto 57px;
+}
+.plista li:hover{      
+    background: rgb(71, 0, 39)
+}
+.plista li:active{    
+    transform: scale(0.95);
+    background: rgb(218, 0, 119);
+}
+
+.plista{
+    position: absolute;
+    top: 50px;
+    left: 200px;
+}
+body{
+    background: #333333;
+}
+
+.butt {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    
+    background: rgb(2, 2, 2);
+    border: rgb(255, 255, 255) solid 1px;    
+    border-radius: 10px;
+    padding: 7px;
+    transition: 0.3s all
+}
+

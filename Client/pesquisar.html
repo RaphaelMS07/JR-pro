@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pesquisar</title>
+        <link rel="stylesheet" href="CSSs/reset.css">
+        <link rel="stylesheet" href="CSSs/style.css">
+        <link rel="stylesheet" href="CSSs/lista.css">
+        <link rel="stylesheet" href="CSSs/pesquisa.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body id="corpo">
+        <header class="head_class">
+            <div class="cabecalho">
+                <img class="logo" src="Imagens/logo100p.png">
+                
+                <ul class="plista">
+                    <li><a href="lista.html"> Orçamentos </a></li>
+                    <li id="entrada"><a href="index.html">  Entrada  </a></li>                    
+                    <li id="pesquisar"><a href="pesquisar.html"> Pesquisar </a></li>
+                    <li id="estatistica"><a href="estatistica.html">Estatísticas</a></li>                   
+                </ul>
+            </div>            
+        </header>
+        <main>
+            <div class="pai_forms">
+                
+                <form class="untransform" id="form_pesquisa" onsubmit="listaController.pesquisar(event)">                
+                    <label for="pesquisa_geral" id="legenda1"class="legenda hidden">Pesquisar por</label>
+    
+                    <img class="image1" src="/Imagens/pesquisarIco.png" alt="pesquisarIco" id="pesquisa_ico">
+    
+                    <p class="tipo_pesquisa hidden" id="tipo_pesquisa1">Pesquisar equipamento</p>
+    
+                    <select name="opt_pesquisa" id="opt_pesquisa1" class="opt_pesquisa-class radius hidden">
+                        <option value="Nome_cliente hidden">nome</option>
+                        <option value="os hidden">OS</option>
+                    </select>
+    
+                    <input type="text" name="pesquisar tudo" id="pesquisa_geral" class="pesquisa_box radius  hidden" placeholder="Em construção">
+                </form>
+              
+            </div>
+            
+            
+            <table id = 'listaClientes' class="table table-hover table-border">
+                <section class="miniwindow hidden" id="mini_window">
+                    
+                </section>
+            </table>          
+        </main>
+    </body>
+    <script src="Scripts/Controller/pesquisaController.js"></script>
+    <script src="Scripts/Controller/subwindowController-pesquisa.js"></script>
+    <script src="Scripts/View/view.js"></script>
+    <script src="Scripts/model/converter.js"></script>
+    <script src="Scripts/View/desenha-tabela-pesquisa.js"></script>    
+    <script src="Scripts/View/desenha-subwindow-pesquisa.js"></script>
+    <script src="Scripts/View/pesquisa-react.js"></script>
+    <script src="Scripts/model/listaClientes.js"></script>
+    <script src="Scripts/View/date-helper.js"></script>
+    
+    <script>
+        let subwindowController = new SubWindowController()      
+        
+        let listaController = new ListaController()
+        listaController.desenha();      
+    </script>  
+</html>

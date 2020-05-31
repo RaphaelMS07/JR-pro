@@ -1,0 +1,323 @@
+/* REFERENTE A RESOLUÇÃO HORIZONTAL 1024 */
+
+/*entradaOS/cliente*/
+.legenda{
+    display: none;
+    color: white;
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    width: 90%;
+    margin: 0 auto;
+}
+.legenda-ativado{
+    display: block;
+    color: white;
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    width: 90%;
+    margin: 0 auto;
+}
+.caixa_texto{
+    display: none;
+    font-size: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+.caixa_texto-ativado{
+    display: block;
+    font-size: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.form1{    
+    width: 4.8%;    
+    padding: 35px 10px;    
+    background: black;
+    border-radius: 40px;
+    border: rgb(3, 121, 255) 3px solid;
+    margin: 5px auto;
+    transition: 0.3s all;
+}
+.form1-semiativado{     
+    width: 45%; /* 30% pra 1080p */
+    padding: 15px 0 20px 0;    
+    background: black;
+    border-radius: 7px;
+    border: rgb(3, 121, 255) 1px solid;
+    margin: 5px auto;
+    transition: 0.3s all;
+}
+.form1-semiativado::before{
+    
+    content: "Cadastrar Cliente";
+    color:rgb(66, 153, 253) ;
+    font-weight: bold;    
+    font-size: 28px;
+    margin-left: 7%;
+    
+}
+
+.form1:hover{
+    background: rgb(0, 14, 41);
+}
+.form1-semiativado:hover{
+    background: rgb(0, 14, 41);
+}
+.form1-semiativado:active{
+    background: rgb(0, 32, 70);
+}
+
+
+/*entradaOS/equip*/
+.checkbox_retorno{
+    display: none;
+    width: 90%;
+    margin: 25px auto;
+    color: white;
+    font-size: 18px;
+    
+}
+.checkbox_retorno-ativado{
+    position: relative;
+    display: block;
+    width: 90%;
+    margin: 25px auto;
+    color: white;
+    font-size: 18px;
+    
+}
+.sub_div{
+    z-index: 0;
+    position: relative;
+    font-size: 20px;
+    display: grid;
+    justify-content: space-evenly;
+    
+    grid-template-columns: 70% 15%;
+    grid-template-rows: 30px 30px;
+    column-gap: 1%;      
+}
+
+#tel{
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+#telefone{
+    font-size: 20px;
+    grid-column-start: 1;
+    grid-row-start: 2;
+}
+#ID{
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+#id{
+    font-size: 20px;
+    
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+.legenda_especial{
+    z-index: 0;
+    position: relative;
+    display: grid;
+    color: white;
+    display: inline;
+    
+}
+
+
+.legenda2{
+    z-index: 0;
+    position: relative;
+    display: none;
+    color: white;
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    width: 90%;
+    margin: 0 auto;
+    
+}
+.legenda2-ativado{
+    z-index: 0;
+    position: relative;
+    display: block;
+    color: white;
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    width: 90%;
+    margin: 0 auto;
+    
+}
+
+.caixa_texto2{
+    display: none;
+    font-size: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+.caixa_texto2-ativado{
+    z-index: 0;
+    position: relative;
+    display: block;
+    font-size: 20px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 7px;
+    font-family:Arial;
+}
+
+.form2{    
+    position: relative;
+    width: 4.8%;    
+    padding: 35px 10px;    
+    background: black;
+    border-radius: 40px;
+    border: rgb(223, 223, 5) 3px solid;
+    margin: 5px auto;
+    transition: 0.3s all;
+}
+.form2-semiativado {  
+    z-index: 0; 
+    width: 45%; /* 30% pra 1080p */
+    padding: 15px 0 20px 0;    
+    background: black;
+    border-radius: 7px;
+    border: rgb(223, 223, 5) 1px solid;
+    margin: 5px auto;
+    transition: 0.3s all;
+}
+
+.form2-semiativado::before{
+    content: "Entrada de Equipamento";
+    color:rgb(223, 223, 55) ;
+    font-weight: bold;
+    font-size: 28px;
+    margin-left: 7%;
+}
+
+.form2:hover{
+    background: rgb(29, 27, 0);
+}
+.form2-semiativado:hover{
+    background: rgb(29, 27, 0);
+}
+.form2-semiativado:active{
+    background: rgb(67, 75, 0);
+}
+
+
+/* Sobre resultados dinamicos de pesquisa */
+.item_pesquisa{
+    position: relative;
+    display: inline-block;
+    left: 22px;
+    bottom: 6px;    
+    background: white;
+    color: black;
+    width: 88%;
+    font-size: 17px;
+    padding: 2px 5px;
+    transition: 0.1s all;
+    z-index: 1;
+    
+    
+}
+.item_pesquisa:hover{
+    background: rgb(254, 255, 197);
+    font-size: 19px;
+    cursor: default;
+    
+}
+
+
+/* geral */
+.fechar {
+    width: 30px;
+    height: 30px;
+    background: black;
+    border: none;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: bolder;
+    margin: 0 auto;
+    margin-top: 5px;
+    
+    
+}
+
+.fechar1{
+    display: block;
+    color: rgb(0, 14, 41);    
+    left:330px;
+    bottom: 8px;
+    border: 1px rgb(3, 121, 255) solid;
+
+}
+.fechar1:hover{
+    background: rgb(0, 14, 41);
+    color: black;
+}
+.fechar2{
+    display: block;
+    color: rgb(29, 27, 0);   
+    left:242px;
+    bottom: 8px;
+    border: 1px rgb(223, 223, 55) solid;
+
+}
+.fechar2:hover{
+    background: rgb(29, 27, 0);
+    color: black;
+}
+
+.hidden {
+    display: none;
+    
+    
+}
+span{
+    width: 80%;;
+    color: rgba(0, 0, 0, 0);
+    font-size: 33px;
+    
+}
+.butt {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    
+    background: rgb(2, 2, 2);
+    border: rgb(255, 255, 255) solid 1px;
+    
+    border-radius: 10px;
+    padding: 7px;
+    transition: 0.3s all
+}
+.butt:hover{
+    transform: scale(1.05);
+    color:rgb(253, 130, 175);
+    border: rgb(255, 0, 93) solid 1px;
+}
+.butt:active{
+    transform: scale(0.97);
+    color:rgb(255, 0, 93);
+}
+.butt_azul{
+    margin:25px 75%;
+}
+.butt_amarelo{
+    
+    margin:0 75%;
+}
+.radius{ /* responsavel pelas pontas arredondadas dos textos dos formularios*/
+    
+    border-radius: 5px;
+    border: black 1px solid;
+    padding-left: 5px;
+}
