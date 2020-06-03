@@ -6,8 +6,8 @@ const dataStore = require('./infra/database')
 const clienteDAO = require('./infra/DAO/cliente-dao')
 const equipDAO = require('./infra/DAO/equip-dao')
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log('iniciou na porta 3000 normalmente'))
+const port = process.env.PORT || 80;
+app.listen(port, () => console.log(`inicou na porta ${port} corretamente`))
 
 app.use(express.static('../Client'));
 app.use(express.json({limit:'1mb'}))
