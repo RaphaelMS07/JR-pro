@@ -2,6 +2,9 @@
 body{
     font-family: 'Roboto', sans-serif;
 }
+.hidden{
+    display: none;
+}
 header{
     height: 120px;
     width: 100%;
