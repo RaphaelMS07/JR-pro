@@ -85,7 +85,7 @@ class DesenhaSubWindow extends Desenhador{
                     
                     <div class="orcamento">
                         <label for="orcamento_id" class="legenda_window">Orçamento</label>
-                        <textarea name="orcamento" id="orcamento_id" cols="69" rows="12"  class="radius caixa_orcamento">${listaCerta[10]}</textarea>
+                        <textarea name="orcamento" id="orcamento_id" cols="69" rows="7"  class="radius caixa_orcamento">${listaCerta[10]}</textarea>
                     </div>
                     <div class="botoes">
                         <button id="aplicar" class="butt" onclick="subwindowController.aplicar(${listaCerta[8]})"> Aplicar</button>
