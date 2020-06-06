@@ -1,29 +1,55 @@
 <!DOCTYPE html>
-    <html lang="pt-br">
-        <head>
-            <meta charset="UTF-8">
-            <title>Impressão</title>
-            <link rel="stylesheet" href="CSSs/reset.css">
-            <link rel="stylesheet" href="CSSs/style.css">
-            <link rel="stylesheet" href="CSSs/entrada.css">
-            <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-        </head>
-        <body>
-            <header>
-                <div class="cabecalho">
-                    <img class="logo" src="Imagens/logo100p.png" title="JR">                
-                    <ul class="plista">
-                        <li><a href="lista.html"> Orçamentos </a></li>
-                        <li id="entrada"><a href="index.html">  Entrada  </a></li>                    
-                        <li id="pesquisar"><a href="pesquisar.html"> Pesquisar </a></li>
-                        <li id="estatistica"><a href="estatistica.html">Estatísticas</a></li>
-                        <!-- <li id="impressão"><a href=".html">impreção</a></li>                       -->
-                    </ul>
-                </div>            
-            </header>
-            <main>
-               
-            </main>       
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Impressão</title>
+        <link rel="stylesheet" href="CSSs/reset.css">
+        <link rel="stylesheet" href="CSSs/print.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        
+    </head>
+    <body>
+        <header>
             
-        </body>
-    </html>
+            <h1>J&R Informática</h1>
+            <h4>CNPJ: 99999-0001</h4>
+            <h4>Telefone: 21 99999-9999</h4>
+            <h4>Endereço: Rua São Cristóvão, n° ????</h4>
+            <br>
+                        
+            <h2>Ordem de serviço</h2>
+        </header>
+        <main>
+            <div class="miolo">                
+                <section class="sobre_cliente">
+                    <a class="campo">Nome do cliente: </a> <a id='nome'>VARIAVEL</a><br>                    
+                    <a class="campo">Telefone: </a> <a id='telefone'>VARIAVEL</a><br>                   
+                    
+                </section>
+                <section class="sobre_equipamento">
+                    <a class="campo">Equipamento: </a> <a id='nome'>VARIAVEL</a><br>                    
+                    <a class="campo">N° Serial: </a> <a id='telefone'>VARIAVEL</a><br>
+                    <a class="campo">Data de entrada: </a> <a id='entrada'>VARIAVEL</a><br>                    
+                    <a class="campo">Defeito alegado: </a> <a id='defeito'>VARIAVEL</a><br>  
+                    <a class="campo">Observações: </a> <a id='obs'>VARIAVEL</a><br>                    
+                    
+                </section>
+                <section class="termo_responsabilidade">
+                    <h3>Termo de Responsabilidade:</h3>
+                    <P>
+                        O cliente está ciente do prazo de 180 dias limite para fazer a retirada do equipamento. Caso o prazo não
+                        seja cumprido, a empresa J&R informática poderá reivindicar o equipamento para fins de cobrir quaisquer
+                        prejuízos referente ao serviço e as peças usadas no equipamento. O cliente também está ciente de valor de VARIAVEL reais referente ao orçamento de notebooks. 
+                    </P>
+                    <br>
+                    <p class="ass_client">Ass. Cliente: ______________________________________________________</p>
+                    <br>
+                    <p class="ass_jr">Ass. J&R Informática: ______________________________________________________</p>
+                </section>               
+            </div>           
+        </main>
+    
+            
+        
+    </body>
+</html>

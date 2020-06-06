@@ -1,0 +1,65 @@
+html{
+    background-color: rgb(37, 37, 37);
+}
+body{
+    width: 21cm;
+    min-height: 29.7cm;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+}
+
+header{
+    text-align: center;
+    
+
+}
+h1{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0.2cm;
+}
+h2{
+    font-size: 21px;
+    font-weight: bold;
+}
+h3{
+    font-size: 18px;
+    
+    font-weight: bold;
+    margin-bottom: 0.1cm;
+    background-color: black;
+    
+}
+h4{
+    font-size: 18px;
+    text-align: center;
+}
+.campo{
+    font-weight: 600;
+    margin-bottom: 0.1cm;
+    display: inline-block;
+}
+
+.miolo{
+    background-image: url("/Imagens/jrbw400p.bmp");
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-print-color-adjust: exact;
+
+    
+    margin: 0.2cm;
+    padding: 0.2cm;
+    border: black solid 0.05cm;
+    border-radius: 0.2cm ;
+    min-height: 24cm;
+}
+.sobre_cliente{    
+    padding-bottom:0.2cm;
+    
+}
+.termo_responsabilidade{
+    text-align: center;
+    position: relative;
+    top: 16cm;
+}
