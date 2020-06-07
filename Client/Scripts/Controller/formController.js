@@ -63,8 +63,13 @@ class FormController {
         };
         fetch('/api2', options)        
 
-        this._limpaform2()      
+        this._limpaform2();
+        let newTab = window.open('http://localhost/imprimir.html')
+        setTimeout(() => {
+            newTab.close()
+        }, 1000); 
     }
+
     pesquisar(){       
         var awaitDatas = this.getDataCliente()
         awaitDatas.then(datas => {

@@ -19,37 +19,25 @@
                         
             <h2>Ordem de serviço</h2>
         </header>
-        <main>
-            <div class="miolo">                
-                <section class="sobre_cliente">
-                    <a class="campo">Nome do cliente: </a> <a id='nome'>VARIAVEL</a><br>                    
-                    <a class="campo">Telefone: </a> <a id='telefone'>VARIAVEL</a><br>                   
-                    
-                </section>
-                <section class="sobre_equipamento">
-                    <a class="campo">Equipamento: </a> <a id='nome'>VARIAVEL</a><br>                    
-                    <a class="campo">N° Serial: </a> <a id='telefone'>VARIAVEL</a><br>
-                    <a class="campo">Data de entrada: </a> <a id='entrada'>VARIAVEL</a><br>                    
-                    <a class="campo">Defeito alegado: </a> <a id='defeito'>VARIAVEL</a><br>  
-                    <a class="campo">Observações: </a> <a id='obs'>VARIAVEL</a><br>                    
-                    
-                </section>
-                <section class="termo_responsabilidade">
-                    <h3>Termo de Responsabilidade:</h3>
-                    <P>
-                        O cliente está ciente do prazo de 180 dias limite para fazer a retirada do equipamento. Caso o prazo não
-                        seja cumprido, a empresa J&R informática poderá reivindicar o equipamento para fins de cobrir quaisquer
-                        prejuízos referente ao serviço e as peças usadas no equipamento. O cliente também está ciente de valor de VARIAVEL reais referente ao orçamento de notebooks. 
-                    </P>
-                    <br>
-                    <p class="ass_client">Ass. Cliente: ______________________________________________________</p>
-                    <br>
-                    <p class="ass_jr">Ass. J&R Informática: ______________________________________________________</p>
-                </section>               
-            </div>           
+        <main id="ordem_service">            
         </main>
-    
-            
         
+        
+        <script src="Scripts/View/date-helper.js"></script>
+        <script src="Scripts/Model/converter.js"></script>
+        <script src="Scripts/View/view.js"></script>
+        <script src="Scripts/View/desenha-print-os.js"></script>
+        <script src="Scripts/Controller/printController.js"></script>
+        
+        <script>           
+            var printController = new PrintController();
+            printController.desenha()            
+        </script>
+        <script>
+            setTimeout(() => {
+                window.print()           
+            }, 200);
+                   
+        </script>      
     </body>
 </html>

@@ -28,7 +28,7 @@ h3{
     
     font-weight: bold;
     margin-bottom: 0.1cm;
-    background-color: black;
+    /* background-color: black; */
     
 }
 h4{
@@ -39,6 +39,13 @@ h4{
     font-weight: 600;
     margin-bottom: 0.1cm;
     display: inline-block;
+}
+.os{
+    padding-top: 0.1cm;
+    padding-left: 0.1cm;
+    border-radius: 3px;
+    background: rgb(226, 226, 226);
+    width: 2.6cm;
 }
 
 .miolo{
@@ -61,5 +68,5 @@ h4{
 .termo_responsabilidade{
     text-align: center;
     position: relative;
-    top: 16cm;
+    bottom: -15cm;
 }
