@@ -1,4 +1,4 @@
-class DesenhaPrintOs extends Desenhador{
+class DesenhaPrintOrcamento extends Desenhador{
     constructor(elemento){
         super(elemento);
         this.dateHelper =  new DateHelper();

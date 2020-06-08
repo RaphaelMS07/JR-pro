@@ -39,7 +39,8 @@ dataStore.serialize(function(){
         valor_servico VARCHAR(25),
         valor_hardware VARCHAR(25),
         valor_lucro VARCHAR(25),
-        data_retirada INTEGER(255)       
+        data_retirada INTEGER(255),
+        data_orcamento INTEGER(255)       
     )`);
         
     });

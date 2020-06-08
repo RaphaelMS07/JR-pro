@@ -70,3 +70,17 @@ h4{
     position: relative;
     bottom: -15cm;
 }
+
+.setor1{
+    margin-top: 30px;
+}
+.setor2{
+    margin-top: 40px;
+}
+.total{
+    font-size: 20px;
+    font-weight: bold;
+}
+p{
+    font-size: 18px;
+}

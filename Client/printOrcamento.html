@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Impressão</title>
+        <link rel="stylesheet" href="CSSs/reset.css">
+        <link rel="stylesheet" href="CSSs/print.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        
+    </head>
+    <body>
+        <header>
+            
+            <h1>J&R Informática</h1>
+            <h4>CNPJ: 21.142.628/0001-00</h4>
+            <h4>TEL: 21 3798-4684/ WHATSAPP: 21 97307-3914</h4>
+            <h4>ENDEREÇO: Rua São Cristóvão, Nº 516, Gleria do ED Aladin, Loja 1-G</h4>
+            <h4>EMAIL: atendimento.infojr@gmail.com</h4>
+            <br>
+                        
+            <h2>Orçamento</h2>
+        </header>
+        <main id="orcamento">
+            <div class="miolo">
+                <section class="sobre_cliente">
+                    <a class="campo">Nome do cliente: </a> <a id='nome'>${}</a><br>                    
+                    <a class="campo">Telefone: </a> <a id='telefone'>${}</a><br>
+                    <br>
+                    <a class="campo">Data de orçamento: </a><a>${}</a>                  
+                </section>
+                <section class="sobre_orcamento">
+                    <div class="diagnostico setor1">
+                        <h3 class="subtitulo">${} modelo do equipamento</h3>
+                        <br>
+                        <h3 class="subtitulo">Diagnóstico: </h3>
+                        <p>${} Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia cupiditate expedita ratione autem fuga, blanditiis ipsa neque, libero culpa excepturi vitae nulla, repudiandae ut tempora ullam commodi sequi molestiae maxime?</p>
+                    </div>
+                    <div class="servicos setor2">
+                        <h3 class="subtitulo">Serviços:</h3>
+                        <p>${} Lorem ipsum dolor sit amet consectetur adipisicing elit. Error aliquid eum recusandae, nostrum magni possimus quidem architecto veniam, omnis quas fuga, eos culpa maiores! Dignissimos laborum id soluta voluptatum ratione?</p>                    
+                    </div>
+                    <div class ="pecas setor2">
+                        <h3 class="subtitulo">Peças:</h3>
+                        <p>${} Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate sequi facere maiores placeat temporibus nemo</p>
+                    </div>                    
+                    <div class="total setor2">
+                        <a>Valor Total: </a><a>${} </a>
+                    </div>
+                    <div class="comunicado setor2"> 
+                        <p>Prazo de entrega até 3 dias úteis apartir da data de aprovação do serviço.</p>
+                        <br>                    
+                        <p>Todas as peças e serviços tem garantia de 3 meses apartir da data de entrega. Valores de orçamentos são válidos por uma semana e poderão ser recalculados caso o período expire. </p>
+                    </div>
+                </section>
+            </div>            
+        </main>
+        
+        
+        <script src="Scripts/View/date-helper.js"></script>
+        <script src="Scripts/Model/converter.js"></script>
+        <script src="Scripts/View/view.js"></script>
+        <script src="Scripts/View/desenha-print-os.js"></script>
+        <script src="Scripts/Controller/printController.js"></script>
+        
+        <script>           
+            var printController = new PrintController();
+            printController.desenha()            
+        </script>
+        <script>
+            setTimeout(() => {
+                window.print()           
+            }, 200);
+                   
+        </script>      
+    </body>
+</html>
