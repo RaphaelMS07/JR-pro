@@ -38,9 +38,30 @@ dataStore.serialize(function(){
         servico VARCHAR(255),
         valor_servico VARCHAR(25),
         valor_hardware VARCHAR(25),
+        valor_lucro VARCHAR(25),        
+        data_retirada INTEGER(255),
+        data_orcamento INTEGER(255),
+        tecnico VARCHAR(255)     
+    )`);
+    dataStore.run(`CREATE TABLE IF NOT EXISTS tempData(               
+        os INTEGER(25),
+        cliente_nome VARCHAR(255),
+        cliente_telefone VARCHAR(255),      
+        modelo VARCHAR(255),
+        serial VARCHAR(255),
+        def_alegado VARCHAR(255),
+        obs VARCHAR(255),
+        datastamp INTEGER(255),
+        status VARCHAR(255),
+        orcamento TEXT,        
+        tipo_equip VARCHAR(25),
+        servico VARCHAR(255),
+        valor_servico VARCHAR(25),
+        valor_hardware VARCHAR(25),
         valor_lucro VARCHAR(25),
         data_retirada INTEGER(255),
-        data_orcamento INTEGER(255)       
+        data_orcamento INTEGER(255),
+        tecnico VARCHAR(255)     
     )`);
         
     });

@@ -4,55 +4,45 @@ class DesenhaPrintOrcamento extends Desenhador{
         this.dateHelper =  new DateHelper();
         
     }
-    formato(model){
-        
-        let lastCad = 0
-        let osController = 0
-        let cliente = 0
-        for(let i=0; i < model.length; i++){
-            cliente = model[i];
-            
-            if(cliente.os > osController){
-                osController = cliente.os
-                lastCad = cliente;                
-            }
-        }
-        console.log(lastCad)
+    formato(model){   
         
         
         return `    
-        <div class="miolo">                
+        <div class="miolo">
             <section class="sobre_cliente">
-                <a class="campo">Nome do cliente: </a> <a id='nome'>${lastCad.cliente_nome}</a><br>                    
-                <a class="campo">Telefone: </a> <a id='telefone'>${lastCad.cliente_telefone}</a><br>                   
-                
+                <a class="campo">Nome do cliente: </a> <a id='nome'>${model.cliente_nome}</a><br>                    
+                <a class="campo">Telefone: </a> <a id='telefone'>${model.cliente_telefone}</a><br>
+                <br>
+                <a class="campo">Data de orçamento: </a><a>VARIÁVEL</a>                  
             </section>
-            <section class="sobre_equipamento">
-                <div class="os">
-                    <a class="campo">N° OS: </a> <a id='nome'>${lastCad.os}</a><br>
+            <section class="sobre_orcamento">
+                <div class="diagnostico setor1">
+                    <h3 class="subtitulo">${model.modelo}modelo do equipamento</h3>
+                    <br>
+                    <h3 class="subtitulo">Diagnóstico: </h3>
+                    <p>${model.orcamento}</p>
                 </div>
-                <a class="campo">Equipamento: </a> <a id='nome'>${lastCad.modelo}</a><br>                    
-                <a class="campo">N° Serial: </a> <a id='telefone'>${lastCad.serial}</a><br>
-                <a class="campo">Data de entrada: </a> <a id='entrada'>${DateHelper.datastampParaData(lastCad.datastamp)}</a><br>                    
-                <a class="campo">Defeito alegado: </a> <a id='defeito'>${lastCad.def_alegado}</a><br>  
-                <a class="campo">Observações: </a> <a id='obs'>${lastCad.obs}</a><br>                    
-                
+                <div class="servicos setor2">
+                    <h3 class="subtitulo">Serviços:</h3>
+                    <p>${model.orcamento}</p>                    
+                </div>
+                <div class ="pecas setor2">
+                    <h3 class="subtitulo">Peças:</h3>
+                    <p>${model.orcamento} </p>
+                </div>                    
+                <div class="total setor2">
+                    <a>Valor Total: </a><a>VARIÁVEL </a>
+                </div>
+                <div class="comunicado setor2"> 
+                    <p>Prazo de entrega até 3 dias úteis apartir da data de aprovação do serviço.</p>
+                    <br>                    
+                    <p>Todas as peças e serviços tem garantia de 3 meses apartir da data de entrega. Valores de orçamentos são válidos por uma semana e poderão ser recalculados caso o período expire. </p>
+                </div>
             </section>
-            <section class="termo_responsabilidade">
-                <h3>Termo de Responsabilidade:</h3>
-                <P>
-                    O cliente está ciente do prazo de 180 dias limite para fazer a retirada do equipamento. Caso o prazo não
-                    seja cumprido, a empresa J&R informática poderá reivindicar o equipamento para fins de cobrir quaisquer
-                    prejuízos referente ao serviço e as peças usadas no equipamento. O cliente também está ciente de valor de R$60,00 (sessenta reais) referente ao orçamento de notebooks caso o mesmo não aprove o orçamento.
-                </P>
-                <br>
-                <p class="ass_client">Ass. Cliente: ______________________________________________________</p>
-                <br>
-                <p class="ass_jr">Ass. J&R Informática: ______________________________________________________</p>
-            </section>               
-        </div>           
-    
+        </div>            
+
         `
+        
     }
     update(model){
         this._elemento.innerHTML = this.formato(model);

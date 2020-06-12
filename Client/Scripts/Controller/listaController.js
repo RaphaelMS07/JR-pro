@@ -89,14 +89,15 @@ class ListaController{
                 this._desenhador.update(newData)
 
                 for(let i = 0; i<(newData.length); i++){ 
-                    console.log(newData[i])                
+                                   
                     
                     if(newData[i].status == "Retirado"){                                             
                         newData.splice(i, 1);
                         i-- // pra controlar o tamanho da lista e deixar o looping ser completo                        
                         this._desenhador.formato(newData)    
                         this._desenhador.update(newData)                       
-                    }              
+                    }
+                    
                 }                                                                
             })
         })                

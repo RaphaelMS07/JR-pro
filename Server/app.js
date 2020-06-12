@@ -5,6 +5,7 @@ const dataStore = require('./infra/database')
 
 const clienteDAO = require('./infra/DAO/cliente-dao')
 const equipDAO = require('./infra/DAO/equip-dao')
+const tempDataDAO = require('./infra/DAO/tempData-dao')
 
 const port = process.env.PORT || 80;
 app.listen(port, () => console.log(`inicou na porta ${port} corretamente`))
@@ -12,6 +13,7 @@ app.listen(port, () => console.log(`inicou na porta ${port} corretamente`))
 app.use(express.static('../Client'));
 app.use(express.json({limit:'1mb'}))
 
+//schema clientes
 app.post('/api', (request, response) =>{
     clienteDao = new clienteDAO(dataStore);
     
@@ -79,11 +81,34 @@ app.post('/pesquisa1', (request, response) =>{
 
 app.get('/pesquisa1', (request, response) =>{
     clienteDao = new clienteDAO(dataStore);
-    console.log(request.param, 'get request')      
+          
     let id = 4  
     clienteDao.getNameById(id).then(resp => {
         
         console.log(resp)
 
     }).catch(erro => console.log(erro))       
+})
+
+//dados temporários de transação de páginas.
+app.post('/temps', (request, response) =>{
+    tempDataDao = new tempDataDAO(dataStore);
+    data = request.body;    
+    tempDataDao.adicionar(data).then(()=> response.status(200).end())
+                               .catch(erro => console.log(erro, "Deu ruim dentro de post temps"))
+
+    console.log(request.body, 'dentro de post temps');
+   
+})
+app.get('/temps',(request, response)=>{
+    tempDataDao = new tempDataDAO(dataStore);
+    tempDataDao.getAll().then(resp=>{
+        response.json(resp);
+    }).catch(erro => console.log(erro, "deu ruim dentro de get temps"))
+} )
+
+app.delete('/temps', (request, response)=>{
+    tempDataDao = new tempDataDAO(dataStore);
+    tempDataDao.removeAll().then(()=> response.status(200).end())
+                           .catch(erro => console.log(erro, "deu ruim dentro de delete temps"))
 })
