@@ -10,9 +10,14 @@ class PrintOrcamentoController{
     }
     desenha(){
         var awaitOs = this.getDataOS()
+        
         awaitOs.then(dados=>{
-            this._desenhaPrintOorcamento.formato(dados);
-            this._desenhaPrintOorcamento.update(dados);
+            dados.forEach(dado => {
+                console.log(dado)
+                this._desenhaPrintOorcamento.formato(dado);
+                this._desenhaPrintOorcamento.update(dado);
+            });
+            
         })
     }
     async getDataOS(){

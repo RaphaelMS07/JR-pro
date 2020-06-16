@@ -362,12 +362,31 @@ th:active{
     font-size: 19px;
     font-family:Arial;    
 }
+
+/* Parte de baixo da subwindow */
+.botton_part{
+    display: grid;
+    grid-template-columns: 45% 60%;
+    align-items: center;
+    grid-gap: 5px;    
+}
+.sub_legendas{
+    display: block;
+    position: relative;
+    bottom: 20px;
+    
+    color: white;
+}
+.valores_botton{
+    margin-left: 5px;
+}
 .butt{
     margin: 5px 10px;
 }
 .botoes{
+    display: block;
     position: relative;
-    left: 425px;
+    left: 10px;
 }
 .butt:hover{
     /* background: rgb(20, 20, 20); */

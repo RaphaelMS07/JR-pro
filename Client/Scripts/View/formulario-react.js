@@ -173,8 +173,93 @@ formEquip.addEventListener('mouseenter', function(){
     }
 })
 
+
+//form3
+var formProduto = document.querySelector(".form3");
+var boxProduto = document.querySelectorAll(".caixa_texto3");
+var legendProduto = document.querySelectorAll(".legenda3");
+var fechadura3 = document.querySelector('.fechar3');
+var cadastrar3 = document.querySelector('.butt_rosa')
+
+
+function semiTransForm3(){    
+    formProduto.classList.add("form3-semiativado");    
+}
+
+showInside3 = function(){    
+    fechadura3.classList.remove('hidden');
+    cadastrar3.classList.remove('hidden');    
+    bordador1.classList.add('hidden');
+
+    for(i=0; i<boxProduto.length; i++){
+        boxProduto[i].classList.remove("caixa_texto3");
+        boxProduto[i].classList.add("caixa_texto3-ativado");        
+    }
+    for(i=0; i<legendProduto.length; i++){
+        legendProduto[i].classList.remove('legenda3');
+        legendProduto[i].classList.add("legenda3-ativado");
+        
+    }    
+}
+
+function unTransForm3(){   
+    if(boxProduto[0].className != 'caixa_texto3-ativado'){
+        formProduto.classList.remove("form3-semiativado");    
+        formProduto.classList.add("form3");
+    }      
+}
+
+function unTransFormAbsolute3(){
+    for(i=0; i<boxProduto.length; i++){
+        boxProduto[i].classList.remove("caixa_texto3-ativado");
+        boxProduto[i].classList.add("caixa_texto3");
+    }
+    for(i=0; i<legendProduto.length; i++){
+        legendProduto[i].classList.remove("legenda3-ativado");
+        legendProduto[i].classList.add("legenda3");
+    }
+
+    formProduto.classList.remove("form3-semiativado");   
+    formProduto.classList.add("form3");
+    cadastrar3.classList.add('hidden');    
+    fechadura3.classList.add('hidden');
+    bordador1.classList.remove('hidden');       
+}
+
+formProduto.addEventListener('click', showInside3);
+fechadura3.addEventListener('click', unTransFormAbsolute3)
+
+formProduto.addEventListener('mouseenter', function(){
+    formProduto.classList.remove('form3')
+    formProduto.classList.add("form3-semiativado");
+    
+    formProduto.addEventListener('click', function(){
+        for(i=0; i<boxProduto.length; i++){
+            boxProduto[i].classList.remove("caixa_texto3");
+            boxProduto[i].classList.add("caixa_texto3-ativado");          
+        }
+                
+        formProduto.addEventListener('mouseleave', function(){
+            formProduto.classList.add("form3-semiativado");           
+        });
+    })      
+    if(boxProduto[0].className == "caixa_texto3 radius" || boxProduto[0].className =="radius caixa_texto3"){
+        formProduto.addEventListener('mouseleave', function(){
+            formProduto.classList.remove("form3-semiativado");
+            formProduto.classList.add("form3");  
+                     
+        });
+        
+    }else{
+        formProduto.addEventListener('mouseleave', function(){
+            formProduto.classList.remove("form3");
+            formProduto.classList.add("form3-semiativado");           
+        });
+    }
+})
+
 //interações entre form1 e form2
 var buttSubmit1 = document.querySelector('#submeter')
 
-buttSubmit1.addEventListener('click', semiTransForm2)
-buttSubmit1.addEventListener('click', showInside2)
+buttSubmit1.addEventListener('click', semiTransForm3)
+buttSubmit1.addEventListener('click', showInside3)

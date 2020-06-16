@@ -17,6 +17,13 @@ class FormController {
         this._inputEquipDefeito = $('#defeito')
         this._inputEquipObs = $('#observ')
 
+        this._inputProdudoNome = $('#nome3');
+        this._inputBoadica = $('#link');
+        this._inputValor = $('#valor');
+        this._inputCusto = $('#custo');
+        this._inputFornecedor = $('#fornecedor');
+        this._inputEstoque = $('#estoque');
+
         this._listaDesenhador = new DesenhaPesquisa($('#divPesquisa'))
 
     }
@@ -69,6 +76,25 @@ class FormController {
             newTab.close()
         }, 1000); 
     }
+
+    adicionarProduto(event){
+        event.preventDefault();
+        
+        const dados = this._montarFormProduto().data
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dados)
+        };
+        fetch('/api3', options)
+        this._limpaform3();
+        
+        
+    }
+    
 
     pesquisar(){       
         var awaitDatas = this.getDataCliente()
@@ -128,7 +154,13 @@ class FormController {
         const response = await fetch('/api');
         const data = await response.json();            
         return data;
-    }  
+    }
+    
+    async getDataProduto(){
+        const response = await fetch('api3');
+        const data = await response.json();
+        return data;
+    }
     
     _montarFormCliente(){
         return new Formulario(
@@ -151,6 +183,17 @@ class FormController {
         )
     }
 
+    _montarFormProduto(){
+        return new FormularioProduto(
+            this._inputProdudoNome.value,
+            this._inputBoadica.value,
+            this._inputValor.value,
+            this._inputCusto.value,
+            this._inputFornecedor.value,
+            this._inputEstoque.value,
+        )
+    }
+
 
     _limpaform(){
         this._inputNome.value = '';
@@ -168,5 +211,15 @@ class FormController {
         this._inputEquipDefeito.value = '',
         this._inputEquipObs.value = ''
 
+    }
+    _limpaform3(){
+        
+        this._inputProdudoNome.value = ''
+        this._inputBoadica.value = ''
+        this._inputValor.value = ''
+        this._inputCusto.value = ''
+        this._inputFornecedor.value = ''
+        this._inputEstoque.value = ''
+        
     }
 }

@@ -212,6 +212,97 @@
     background: rgb(67, 75, 0);
 }
 
+/*entradaOS/produtos*/
+.legenda_especial{
+    z-index: 0;
+    position: relative;
+    display: grid;
+    color: white;
+    display: inline;
+    
+}
+
+
+.legenda3{
+    z-index: 0;
+    position: relative;
+    display: none;
+    color: white;
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    width: 90%;
+    margin: 0 auto;
+    
+}
+.legenda3-ativado{
+    z-index: 0;
+    position: relative;
+    display: block;
+    color: white;
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    width: 90%;
+    margin: 0 auto;
+    
+}
+
+.caixa_texto3{
+    display: none;
+    font-size: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+.caixa_texto3-ativado{
+    z-index: 0;
+    position: relative;
+    display: block;
+    font-size: 20px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 7px;
+    font-family:Arial;
+}
+
+.form3{    
+    position: relative;
+    width: 4.8%;    
+    padding: 35px 10px;    
+    background: black;
+    border-radius: 40px;
+    border: rgb(223, 5, 176) 3px solid;
+    margin: 5px auto;
+    transition: 0.3s all;
+}
+.form3-semiativado {  
+    z-index: 0; 
+    width: 45%; /* 30% pra 1080p */
+    padding: 15px 0 20px 0;    
+    background: black;
+    border-radius: 7px;
+    border: rgb(223, 5, 176) 1px solid;
+    margin: 5px auto;
+    transition: 0.3s all;
+}
+
+.form3-semiativado::before{
+    content: "Cadastrar produtos";
+    color:rgb(223, 5, 176) ;
+    font-weight: bold;
+    font-size: 28px;
+    margin-left: 7%;
+}
+
+.form3:hover{
+    background: rgb(29, 0, 25);
+}
+.form3-semiativado:hover{
+    background: rgb(29, 0, 25);
+}
+.form3-semiativado:active{
+    background: rgb(75, 0, 62);
+}
 
 /* Sobre resultados dinamicos de pesquisa */
 .item_pesquisa{
@@ -277,6 +368,19 @@
     color: black;
 }
 
+.fechar3{
+    display: block;
+    color: rgb(29, 0, 20);   
+    left:242px;
+    bottom: 8px;
+    border: 1px rgb(223, 55, 148) solid;
+
+}
+.fechar3:hover{
+    background: rgb(29, 0, 27);
+    color: black;
+}
+
 .hidden {
     display: none;
     
@@ -314,6 +418,9 @@ span{
 .butt_amarelo{
     
     margin:0 75%;
+}
+.butt_rosa{    
+    margin:25px 75%;
 }
 .radius{ /* responsavel pelas pontas arredondadas dos textos dos formularios*/
     

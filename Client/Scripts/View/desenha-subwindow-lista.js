@@ -90,14 +90,24 @@ class DesenhaSubWindow extends Desenhador{
                         
                     
                     <div class="orcamento">
-                        <label for="orcamento_id" class="legenda_window">Orçamento</label>
+                        <label for="orcamento_id" class="legenda_window">Diagnóstico</label>
                         <textarea name="orcamento" id="orcamento_id" cols="69" rows="7"  class="radius caixa_orcamento">${listaCerta[10]}</textarea>
                     </div>
-                    <div class="botoes">
-                        <button id="aplicar" class="butt" onclick="subwindowController.aplicar(${listaCerta[8]})"> Aplicar</button>
-                        <button id='salvar' class="butt" onclick="subwindowController.salvar(${listaCerta[8]})">Salvar</button>
-                        <button id='cancelar' onclick="subwindowController.cancelar()" class="butt">Cancelar</button>                                
+                    <div class="botton_part">
+                        <div class="sub_legendas">
+                            <span class="valores_botton">Peças:${0.00}</span>
+                            <span class="valores_botton">Serviço:${0.00}</span>
+                            <span class="valores_botton">Total:${0.00}</span> 
+                        </div> 
+                        <div class="botoes">
+                            <button id="orcar" class="butt" onclick="subwindowController.desenha2()"> Orçar </button>                        
+                            <button id="aplicar" class="butt" onclick="subwindowController.aplicar(${listaCerta[8]})"> Aplicar</button>
+                            <button id='salvar' class="butt" onclick="subwindowController.salvar(${listaCerta[8]})">Salvar</button>
+                            <button id='cancelar' onclick="subwindowController.cancelar()" class="butt">Cancelar</button> 
+                                                
+                        </div>
                     </div>
+                    
                     
                 </div>                        
             </div>     

@@ -56,6 +56,7 @@
                     <div class = "sub_div hidden">
                         <label for="Telefone" class="legenda_especial" id="tel" autocomplete="off">Telefone</label>
                         <input type="tel" id="telefone2" class="caixa_texto_menor radius" >
+                        
 
                         <label for="id" class="legenda_especial" id="ID">ID</label>
                         <input type="tel" id="id" class="caixa_texto_menor radius" readonly="true" required placeholder="Auto">
@@ -79,12 +80,39 @@
                     <input type="submit" id='submeter2' value="Cadastrar" class='butt butt_amarelo'>
                 </div>               
             </form>
+            <span class=borderer>espaço</span>
+            <button class="fechar3 fechar hidden">x</button>
+            <form class="form3" onsubmit="formController.adicionarProduto(event)"> 
+                <div class="form_servico" id="form_servico">
+                    
+                        <label for="nome3" class="legenda3">Descrição do serviço ou produto</label>
+                        <input type="text" id="nome3" class="caixa_texto3 radius"  placeholder="Pesquisar ou cadastrar" autocomplete="off" required>         
+                        
+                        <label for="link" class="legenda3" id="valor" autocomplete="off">Link boadica</label>
+                        <input type="text" id="link" class="caixa_texto3 radius" placeholder="Link específico do produto">
+
+                        <label for="valor" class="legenda3" id="valor" autocomplete="off">Valor</label>
+                        <input type="text" id="valor" class="caixa_texto3 radius" placeholder="Apenas se não possuir link">
+
+                        <label for="custo" class="legenda3" id="valor" autocomplete="off">Preço de custo</label>
+                        <input type="text" id="custo" class="caixa_texto3 radius" placeholder="Apenas se for produto e não possuir link">
+
+                        <label for="fornecedor" class="legenda3" id="valor" autocomplete="off">Fornecedor</label>
+                        <input type="text" id="fornecedor" class="caixa_texto3 radius" placeholder="Apenas se não possuir link">                      
+
+                        <label for="estoque" class="legenda3" id="valor" autocomplete="off">Estoque</label>
+                        <input type="text" id="estoque" class="caixa_texto3 radius" placeholder="Apenas se não possuir link">          
+                    
+                        <input type="submit" id='submeter' value="Cadastrar" class="butt butt_rosa hidden" >
+                           
+            </form>
         </main>
         
         <script src="Scripts/View/view.js"></script> 
         <script src="Scripts/view/formulario-react.js"></script>         
         <script src="Scripts/View/desenha-pesquisa-dropdown.js"></script>              
-        <script src="Scripts/Model/formulario.js"></script>        
+        <script src="Scripts/Model/formulario.js"></script>    
+        <script src="Scripts/Model/formulario-produto.js"></script>    
         <script src="Scripts/Model/formulario-completo.js"></script>
         <script src="Scripts/Controller/formController.js"></script>
         <script src="Scripts/Controller/listaController.js"></script>

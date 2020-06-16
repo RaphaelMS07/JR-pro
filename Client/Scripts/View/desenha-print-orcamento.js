@@ -13,11 +13,11 @@ class DesenhaPrintOrcamento extends Desenhador{
                 <a class="campo">Nome do cliente: </a> <a id='nome'>${model.cliente_nome}</a><br>                    
                 <a class="campo">Telefone: </a> <a id='telefone'>${model.cliente_telefone}</a><br>
                 <br>
-                <a class="campo">Data de orçamento: </a><a>VARIÁVEL</a>                  
+                <a class="campo">Data de orçamento: </a><a>${DateHelper.datastampParaData(model.datastamp)}</a>               
             </section>
             <section class="sobre_orcamento">
                 <div class="diagnostico setor1">
-                    <h3 class="subtitulo">${model.modelo}modelo do equipamento</h3>
+                    <h3 class="subtitulo">${model.modelo}</h3>
                     <br>
                     <h3 class="subtitulo">Diagnóstico: </h3>
                     <p>${model.orcamento}</p>
