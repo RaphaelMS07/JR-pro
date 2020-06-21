@@ -395,3 +395,93 @@ th:active{
 .butt:active{    
     background: rgb(32, 32, 32);
 }
+
+
+
+
+/* Sobre window de orcamento */
+.window2{
+    /* herda de window (linha 189) */
+    z-index: 2;
+    bottom: -60px;
+    left: -300px;
+    height: 500px;
+    width: 700px;  
+}
+.main_grid{
+    display: grid;
+    grid-template-columns: repeat(2, 45%);
+    align-items: center;
+    grid-gap: 5px;    
+
+
+}
+.pseudo-textbox{      
+    background-color: white;
+    margin: 20px;
+    height: 250px;
+    width: 400px;
+    z-index: 3;
+    border-radius: 5px;
+}
+
+#legenda_add_produtos{
+    margin: 20px;
+}
+
+/* sobre itens e subitens dentro de pseudo-textbox */
+.add_butt{
+    font-weight: 800;
+    width: 100%;
+    /* display: none; */
+    background-color: white;
+    border: rgb(101, 150, 255) solid 2px;
+    border-radius: 5px;
+}
+.pesquisa{
+    background-color: white;
+    
+    font-size: 18px;
+    width: 92%;
+    border: gray solid 1px;
+}
+.pesquisado{
+    background-color: rgb(241, 241, 241);  
+    font-size: 18px;
+    width: 92%;
+    border: gray solid 1px;
+    cursor: default;
+}
+#pesquisa0{
+    border-radius: 5px 0 0 0;
+}
+.pesquisado:hover{
+    background-color: rgb(231, 215, 212);
+}
+li{
+    display: inline;
+}
+.fechar{
+    color: white;
+    height: 24px;
+    width: 25px;
+    vertical-align: top;
+    background: rgb(250, 144, 125);
+    border: black;
+    border-radius: 5px;
+}
+/* sobre pesquisa em dropdown dentro de subitens */
+.item_pesquisa{
+    background-color: white;
+    z-index: 4;
+    width: 98%;
+    transition: all 0.2s;
+    padding: 1px 2px;
+    
+
+}
+.item_pesquisa:hover{
+    background-color: rgb(248, 223, 219);
+    padding: 2px 2px;
+    cursor: default;
+}

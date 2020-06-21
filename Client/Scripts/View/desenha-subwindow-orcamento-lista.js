@@ -7,8 +7,9 @@ class DesenhaOrcamentoWindow extends Desenhador{
 
        
     }
-    formato(model, os){
-        return           
+    formato(model){
+        return `
+        `          
     }
     
     updateEspecial(model, os){       

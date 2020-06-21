@@ -26,12 +26,29 @@
                 <section class="miniwindow hidden" id="mini_window">
                     
                 </section>
+                <section class="miniwindow" id="mini_window2">
+                    <div class="window window2 main_grid" id="window-orcamento">
+                        <section id="add_produtos_area" class="grid_produtos">
+                            <label for="add_produtos" class="legenda_window" id="legenda_add_produtos">Adicionar itens</label>
+                            <div class="pseudo-textbox" id='add_produtos'>
+                                <div class="add_produto">
+                                    
+                                </div>
+                                <div id='dppesquisar' class="hidden"></div>                                
+                                <button class="add_butt" value="add_produto" onclick="subwindowValores.desenhaLista()">+</button>
+                            </div>
+                            <a class="legenda_window">TOTAL: </a> <a id="total" class="legenda_window"></a>
+                        </section>
+                                                
+                    </div>
+                </section>
             </table>          
         </main>
     </body>
     <script src="Scripts/Controller/listaController.js"></script>
     <script src="Scripts/Controller/subwindowController.js"></script>
     <script src="Scripts/Controller/printOrcamantoController.js"></script>
+    <script src="Scripts/Controller/subwindowValoresController.js"></script>
     <script src="Scripts/View/view.js"></script>
     <script src="Scripts/model/converter.js"></script>
     <script src="Scripts/View/desenha-tabela-osativos.js"></script>    
@@ -39,13 +56,16 @@
     <script src="Scripts/model/listaClientes.js"></script>
     <script src="Scripts/View/date-helper.js"></script>
     <script src="Scripts/View/desenha-print-orcamento.js"></script>
-    <script src="Scripts/View/desenha-orcamentoWindow-lista.js"></script>
+    <script src="Scripts/View/desenha-subwindow-orcamento-lista.js"></script>
+    <script src="Scripts/View/desenha-pesquisa-dropdown.js"></script>
     
     
     <script>
         let subwindowController = new SubWindowController()
+        let subwindowValores = new SubwindowValoresContoller()
         
         let listaController = new ListaController()
-        listaController.desenha();       
+        listaController.desenha();
+        // subwindowValores.pesquisar();       
     </script>  
 </html>

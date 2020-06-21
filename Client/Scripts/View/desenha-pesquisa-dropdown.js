@@ -8,11 +8,22 @@ class DesenhaPesquisa extends Desenhador{
         for (let i=0; i< model.length; i++){
             let item = model[i];
             // console.log(item)
-             
-            listaParagrafos.push(               
+            if(item.telefone){
+                listaParagrafos.push(               
                                 
-                `<p id="${item.id}" class="item_pesquisa info_nome" onclick='formController.selectPesquisa("${item.nome}", "${item.telefone}", "${item.id}")'>${item.nome}</p>`)
-                // formController.selectPesquisa("${item}")
+                    `<p id="${item.id}" class="item_pesquisa info_nome" onclick='formController.selectPesquisa("${item.nome}", "${item.telefone}", "${item.id}")'>${item.nome}</p>`
+                )
+                    
+
+            }else{
+                listaParagrafos.push(
+                    `<p id="${item.ps_id}" class="item_pesquisa info_nome" onclick='subwindowValores.selectPesquisa("${item.nome}", "${item.boadica}", "${item.ps_id}")'>${item.nome}</p>`
+                )
+                    
+
+                
+            }
+            
                 
         }
         

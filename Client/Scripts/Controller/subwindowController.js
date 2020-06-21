@@ -8,6 +8,7 @@ class SubWindowController {
         this._desenhaPrintOrcamento = new DesenhaPrintOrcamento($("#orcamento"));
         this._listaConvertida = new Converter();
         this._printOrcamentoContoller = new PrintOrcamentoController();
+        this._subwindowValoresController = new SubwindowValoresContoller()
         
 
         this._clientes = [];
@@ -86,7 +87,7 @@ class SubWindowController {
 
     //isso aqui desenha a sub-subwindow de orçamento
     desenha2(){
-        console.log('cliackado dentro da função desenha2')
+        return
     }
 
     cancelar(){
@@ -156,25 +157,7 @@ class SubWindowController {
                 }                                                                                                  
             })
         })
-        awaitProduto.then(pd=>{  //isso aqui tá uma zona do kralho.
-            //retorna todos os produtos
-            
-            const options = {
-                method: 'GET'            
-            };
-            fetch(`/python/${pd[1].ps_id}`, options)
-            //pega o id do produto e passa como parametro de URL pro GET em app.js
-
-            let awaitboadica = this.getDataBoadica(pd[1].ps_id);
-            
-            awaitboadica.then(bd =>{
-                console.log('foda-se')
-                //retorna os dados do link do boadica com base no parametro passado em produtos ali em cima,
-                //o parametro de URL entra na função runpy, vai para o python que pega a url do boadica referente ao produto
-                //e retorna todas as informações do site boadica em json. NEM EU TO ENTENDENDO MAIS ESSA PORRA DIREITO!
-                console.log(bd)
-            })
-        })        
+        
     }
     
 
