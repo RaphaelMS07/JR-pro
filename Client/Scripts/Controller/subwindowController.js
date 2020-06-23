@@ -8,7 +8,7 @@ class SubWindowController {
         this._desenhaPrintOrcamento = new DesenhaPrintOrcamento($("#orcamento"));
         this._listaConvertida = new Converter();
         this._printOrcamentoContoller = new PrintOrcamentoController();
-        this._subwindowValoresController = new SubwindowValoresContoller()
+        this._subwindowValoresController = new SubwindowValoresContoller();
         
 
         this._clientes = [];
@@ -87,6 +87,7 @@ class SubWindowController {
 
     //isso aqui desenha a sub-subwindow de orçamento
     desenha2(){
+        this
         return
     }
 

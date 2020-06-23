@@ -17,7 +17,7 @@ class DesenhaPesquisa extends Desenhador{
 
             }else{
                 listaParagrafos.push(
-                    `<p id="${item.ps_id}" class="item_pesquisa info_nome" onclick='subwindowValores.selectPesquisa("${item.nome}", "${item.boadica}", "${item.ps_id}")'>${item.nome}</p>`
+                    `<p id="${item.ps_id}" class="item_pesquisa info_nome" onclick='subwindowValores.selectPesquisa("${item.nome}", "${item.boadica}", "${item.ps_id}", "${item.valor}")'>${item.nome}</p>`
                 )
                     
 
@@ -28,5 +28,8 @@ class DesenhaPesquisa extends Desenhador{
         }
         
         return listaParagrafos.join('')      
+    }
+    update(model){
+        this._elemento.innerHTML = this.formato(model)
     }
 }

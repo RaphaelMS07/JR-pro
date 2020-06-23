@@ -19,7 +19,7 @@ class FormController {
 
         this._inputProdudoNome = $('#nome3');
         this._inputBoadica = $('#link');
-        this._inputValor = $('#valor');
+        this._inputValor = $('#valor2');
         this._inputCusto = $('#custo');
         this._inputFornecedor = $('#fornecedor');
         this._inputEstoque = $('#estoque');
@@ -61,6 +61,7 @@ class FormController {
         
         const dados = this._montarFormEquip().data
         
+        
         const options = {
             method: 'POST',
             headers: {
@@ -81,6 +82,7 @@ class FormController {
         event.preventDefault();
         
         const dados = this._montarFormProduto().data
+        
 
         const options = {
             method: 'POST',

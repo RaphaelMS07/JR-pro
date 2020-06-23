@@ -43,6 +43,14 @@ dataStore.serialize(function(){
         data_orcamento INTEGER(255),
         tecnico VARCHAR(255)     
     )`);
+    dataStore.run(`CREATE TABLE IF NOT EXISTS equipProduto(
+        pe_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        os INTEGER(25),
+        ps_id INTEGER(25),
+        nome VARCHAR(255),
+        valor VARCHAR(25)
+
+    )`)
 
     dataStore.run(`CREATE TABLE IF NOT EXISTS tempData(               
         os INTEGER(25),
@@ -73,7 +81,7 @@ dataStore.serialize(function(){
         fornecedor VARCHAR(255),
         estoque INTEGER(25),        
         datastamp INTEGER(255)
-    )`)
+    )`);
         
     });
    

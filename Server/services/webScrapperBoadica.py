@@ -133,9 +133,10 @@ for i in range(len(endertele)):
 
 
 dicionario = {
+    "ps_id": sys.argv[1],
     "valor_medio": media_tratada,
     "ender_tel": listas[0],
-    "valores": listas[1], 
+    "valores": listas[1],
 }
 
 

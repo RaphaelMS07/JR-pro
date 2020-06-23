@@ -23,4 +23,9 @@ class DateHelper {
         return `${dia.getDate()}/${dia.getMonth()+1}/${dia.getFullYear()}` // por algum motivo o mês funciona diferente do resto. como se fosse index de uma lista.
         
     }
+
+    static virgulaParaPonto(texto){        
+        var resp = texto.replace(",", ".")
+        return resp
+    }
 }

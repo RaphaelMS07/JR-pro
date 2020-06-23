@@ -6,15 +6,11 @@ const dataStore = require('./infra/database')
 const clienteDAO = require('./infra/DAO/cliente-dao')
 const equipDAO = require('./infra/DAO/equip-dao')
 const produtoDAO = require('./infra/DAO/produto-dao')
-const tempDataDAO = require('./infra/DAO/tempData-dao')
+const tempDataDAO = require('./infra/DAO/tempData-dao');
+const equipProdutoDAO = require('./infra/DAO/equipProduto-dao')
+const { request } = require('express');
 
-// const spawn = require("child_process").spawn
-// const pythonProcess2 = spawn('python',['services/webScrapperBoadica.py'])
-// pythonProcess2.stdout.on('data', (data)=>{
-//     let sdata = (data.toString())
-//     let jdata = JSON.parse(sdata);    
-//     console.log(sdata);
-// })
+
 
 var runPy = function(id){
     return new Promise(function(ok, notok){
@@ -36,28 +32,23 @@ var runPy = function(id){
 
 
 
-app.get('/python/:id', (request, response)=>{
-    const id = request.params.id
-    console.log(id +'valor do id passado para o get python')
-    runPy(id).then(data=>{
-        // console.log(data)        
-        response.json(data)
-    }).catch(erro => console.log(erro))
-})
-// app.post('/python', (request, response)=>{
-//     console.log(request.body, 'dentro de post /python')
-// })
- 
 
-// var boadica = require('./services/boadica.json');
-// const { json } = require('express');
-// // console.log(boadica.valores)
+
 
 const port = process.env.PORT || 80;
 app.listen(port, () => console.log(`inicou na porta ${port} corretamente`))
 
 app.use(express.static('../Client'));
 app.use(express.json({limit:'1mb'}))
+
+//sobre infos da api python
+app.get('/python/:id', (request, response)=>{
+    const id = request.params.id
+    
+    runPy(id).then(data=>{            
+        response.json(data)
+    }).catch(erro => console.log(erro))
+})
 
 //schema clientes
 app.post('/api', (request, response) =>{
@@ -104,6 +95,20 @@ app.get('/api2', (request, response) =>{
     }).catch(erro => console.log(erro))      
 })
 
+app.post('/equipproduto', (request, response)=>{ //isso aqui é sobre produtos atrelados a equipamentos.
+    equipProdutoDao = new equipProdutoDAO(dataStore);
+    equipProdutoDao.adicionar(request.body);
+    response.json({
+        stts : 'Succ'
+    })
+})
+app.delete('/equipproduto', (request, response)=>{
+    equipProdutoDao = new equipProdutoDAO(dataStore);
+    equipProdutoDao.delete(request.body).then(()=>response.status(200).end())
+                                        .catch(erro=> console.log('deu ruim ao deletar equipproduto em app.delete ', erro))
+
+})
+
 //aqui será postado e pegado o schema de produtos.
 app.post('/api3', (request, response)=>{
     produtoDao = new produtoDAO(dataStore);
@@ -122,6 +127,7 @@ app.get('/api3', (request, response)=>{
     }).catch(erro => console.log(erro, 'deu ruim no get de api3'))
 })
 
+
 //sobre atualzações
 app.put('/atualizar', (request, response) =>{
     // console.log(request.body);
@@ -135,6 +141,14 @@ app.put('/atualizar', (request, response) =>{
             .then(()=> response.status(200).end())
             .catch(erro => console.log(erro))    
 })
+
+app.put('/atualizarapi3', (request, response)=>{ //se colocar a mesma rota do api3, vai ficar lento pra kralho!
+    let produtoDao = new produtoDAO(dataStore);
+    produtoDao.boadicaUpdate(request.body)
+              .then(()=> response.status(200).end)
+              .catch(erro=> console.log('deu ruim no put /atualizarapi3', erro))
+})
+
 
 //sobre pesquisas
 app.post('/pesquisa1', (request, response) =>{

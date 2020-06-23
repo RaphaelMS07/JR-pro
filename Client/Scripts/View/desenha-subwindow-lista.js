@@ -100,7 +100,7 @@ class DesenhaSubWindow extends Desenhador{
                             <span class="valores_botton">Total:${0.00}</span> 
                         </div> 
                         <div class="botoes">
-                            <button id="orcar" class="butt" onclick="subwindowController.desenha2()"> Orçar </button>                        
+                            <button id="orcar" class="butt" onclick="subwindowValores.desenha()"> Orçar </button>                        
                             <button id="aplicar" class="butt" onclick="subwindowController.aplicar(${listaCerta[8]})"> Aplicar</button>
                             <button id='salvar' class="butt" onclick="subwindowController.salvar(${listaCerta[8]})">Salvar</button>
                             <button id='cancelar' onclick="subwindowController.cancelar()" class="butt">Cancelar</button> 

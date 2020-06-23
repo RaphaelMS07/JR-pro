@@ -406,7 +406,7 @@ th:active{
     bottom: -60px;
     left: -300px;
     height: 500px;
-    width: 700px;  
+    width: 600px;  
 }
 .main_grid{
     display: grid;
@@ -420,7 +420,7 @@ th:active{
     background-color: white;
     margin: 20px;
     height: 250px;
-    width: 400px;
+    width: 560px;
     z-index: 3;
     border-radius: 5px;
 }
@@ -442,13 +442,13 @@ th:active{
     background-color: white;
     
     font-size: 18px;
-    width: 92%;
+    width: 82%;
     border: gray solid 1px;
 }
 .pesquisado{
     background-color: rgb(241, 241, 241);  
     font-size: 18px;
-    width: 92%;
+    width: 82%;
     border: gray solid 1px;
     cursor: default;
 }
@@ -470,6 +470,22 @@ li{
     border: black;
     border-radius: 5px;
 }
+.valor{
+    background-color: white;
+    
+    font-size: 18px;
+    width: 11%;
+    border: gray solid 1px;
+
+}
+.valorado{
+    background-color: rgb(241, 241, 241);  
+    font-size: 18px;
+    width: 11%;
+    border: gray solid 1px;
+    cursor: default;    
+}
+
 /* sobre pesquisa em dropdown dentro de subitens */
 .item_pesquisa{
     background-color: white;
