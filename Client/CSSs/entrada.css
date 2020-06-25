@@ -235,6 +235,18 @@
     margin: 0 auto;
     
 }
+.legenda3_menor-ativado{
+    z-index: 0;
+    position: relative;
+    
+    color: white;
+    font-size: 15px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    width: 90%;
+    margin: 0 auto;
+
+}
 .legenda3-ativado{
     z-index: 0;
     position: relative;

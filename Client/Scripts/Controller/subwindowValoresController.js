@@ -2,7 +2,7 @@ class SubwindowValoresContoller{
     constructor(){
         let $ = document.querySelector.bind(document);
         let $A = document.querySelectorAll.bind(document);
-        // this._id = id
+        // this._os = os;
 
         // this._elemento2 = $('.add_produto');
         this._allItens = $('.item_pesquisa');
@@ -10,16 +10,19 @@ class SubwindowValoresContoller{
         this.divLista = $('#dppesquisar')
         this._desenhaPesquisa = new DesenhaPesquisa($('#dppesquisar'));
         this._desenhaOrcamento = new DesenhaOrcamentoWindow($('#mini_window2'));
+        
+        
     }
 
     async getDataProduto(){
         //retorna uma lista de itens, cada item retorna: boadica, custo, datastamp, estoque, fornecedor, nome, ps_id, valor
-        //valor é nulo caso seja item de boadica
+        //valor é nulo caso seja item de boadica recém cadastrado
         const response = await fetch(`api3`);
         const data = await response.json();
         return data;
     }
     async getDataBoadica(id){
+        //paramentro id é o ps_id
         //retorna item, item retorna: ender_tel, valor_medio, valores.
         //ender_tel retorna uma lista de endereços e telefones
         //cada item de ender_tel retorna endereço [0] e os telefones [1] pra cima.
@@ -29,42 +32,70 @@ class SubwindowValoresContoller{
         const data = await response.json();
         return data;
     }
+    async getDataEquipProduto(id){
+        //paramatro id é a OS
+        //retorna o equipproduto pesquisado com determinada OS/id
+        const response = await fetch(`/equipproduto/${id}`);
+        const data = await response.json();
+        return data;
 
-    desenha(){
-        // let awaitProduto = this.getDataProduto(idProduto)
-        // awaitProduto.then(pd=>{  //isso aqui tá uma zona do kralho.
-        //     //retorna todos os produtos
-            
-        //     const options = {
-        //         method: 'GET'            
-        //     };
-        //     fetch(`/python/${pd[1].ps_id}`, options)
-        //     //pega o id do produto e passa como parametro de URL pro GET em app.js
+    }
 
-        //     let awaitboadica = this.getDataBoadica(pd[1].ps_id);
+   
+
+    desenha(os){
+        let awaitEquipProduto = this.getDataEquipProduto(os);
+        let awaitProduto = this.getDataProduto();
+        let vazio = [] //só pra testar uma parada aí.
+
+        awaitProduto.then(pd=>{  //isso aqui tá uma zona do kralho.
             
-        //     awaitboadica.then(bd =>{
-        //         console.log('foda-se')
-        //         //retorna os dados do link do boadica com base no parametro passado em produtos ali em cima,
-        //         //o parametro de URL entra na função runpy, vai para o python que pega a url do boadica referente ao produto
-        //         //e retorna todas as informações do site boadica em json. NEM EU TO ENTENDENDO MAIS ESSA PORRA DIREITO!
-        //         console.log(bd)
-        //     })
-        // })
+            
+            const options = {
+                method: 'GET'            
+            };
+            fetch(`/python/${pd[1].ps_id}`, options)
+            //pega o id do produto e passa como parametro de URL pro GET em app.js
+
+            let awaitboadica = this.getDataBoadica(pd[1].ps_id);
+            
+            awaitboadica.then(bd =>{                
+                //retorna os dados do link do boadica com base no parametro passado em produtos ali em cima,
+                //o parametro de URL entra na função runpy, vai para o python que pega a url do boadica referente ao produto
+                //e retorna todas as informações do site boadica em json. NEM EU TO ENTENDENDO MAIS ESSA PORRA DIREITO!
+                
+            })
+            
+
+            awaitEquipProduto.then(ep=>{
+                this._desenhaOrcamento.formato(ep, os);
+                this._desenhaOrcamento.update(ep, os);               
+            })
+        })
+
+        
+        
         let janela = document.querySelector('#mini_window2')
         if(janela.className == "miniwindow hidden"){            
             janela.classList.remove('hidden');
         }
-        let awaitProduto = this.getDataProduto()
-        let vazio = [] //só pra testar uma parada aí.
-        awaitProduto.then(pd=>{
-            
-            this._desenhaOrcamento.formato(vazio);
-            this._desenhaOrcamento.update(vazio);
-        })
-        
 
     }
+    fechar(buttid){
+        console.log(buttid)
+        let janela = document.querySelector('#mini_window2');
+        let janela2 = document.querySelector('#mini_window3');
+        if(buttid == 1){
+            janela.classList.add('hidden');
+        }
+        if(buttid == 2){
+            console.log('foda-se')
+            janela2.classList.add('hidden');         
+        }
+        
+    }
+
+
     desenhaLista(){
         let _elemento2 = document.querySelector('.add_produto');
       
@@ -76,33 +107,26 @@ class SubwindowValoresContoller{
             var pesquisado = document.querySelector(`#pesquisa${pCount.length-1}`)            
             pesquisado.setAttribute('readonly', 'true') 
             pesquisado.classList.add('pesquisado')
+            // pesquisado.setAttribute('onclick', `subwindowValores.showInfos(${ps_id})`);
 
-            var valorado = document.querySelector(`#valor${pCount.length-1}`)
-            valorado.setAttribute('readonly', 'true');
+            var valorado = document.querySelector(`#valor${pCount.length-1}`)            
             valorado.classList.add('valorado')
         }
-         
         
-    
-              
         var pesquisa = document.createElement("input");
         pesquisa.classList.add('pesquisa');
         pesquisa.setAttribute("id", `pesquisa${pCount.length}`);
         pesquisa.setAttribute('autocomplete', 'off')
+        // pesquisado.setAttribute('onclick', `subwindowValores.showInfos(${ps_id})`);
 
         var valor = document.createElement('input');
         valor.classList.add('valor');
         valor.setAttribute('id', `valor${pCount.length}`)
-        valor.setAttribute('readonly', 'true');
-        
-
-         
-        
-
+      
         var fechar = document.createElement('button');
         fechar.classList.add('fechar');
         fechar.setAttribute('id', `fechar${pCount.length}`);
-        fechar.setAttribute('onclick', `subwindowValores.removerPesquisa(${pCount.length})`);
+        fechar.setAttribute('onclick', `subwindowValores.removerPesquisa(${pCount.length}); subwindowValores.deleteEquipProduto()`);
         var tfechar = document.createTextNode('X');
         fechar.appendChild(tfechar);
 
@@ -125,10 +149,33 @@ class SubwindowValoresContoller{
         let pesquisa = document.getElementById(`pesquisa${id}`);
         let fechar = document.getElementById(`fechar${id}`);
         let valor2 = document.getElementById(`valor${id}`)
-        // console.log(fechar)
+        
         pesquisa.classList.add('hidden');
         valor2.classList.add('hidden');
-        fechar.classList.add('hidden');     
+        fechar.classList.add('hidden');
+
+        // let awaitEquipProduto = this.getDataEquipProduto(id);
+        // awaitEquipProduto.then(ep=>{
+        //     console.log(pesquisa.value)
+        // })
+
+       
+    }
+    deleteEquipProduto(pe_id){
+        //parametro pe_id, é o id do produto embutido no produto.
+        //deleta o pe_id selecionado
+        let dado = {
+            "pe_id": pe_id
+        }
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dado)
+        };
+        fetch('/equipproduto', options)
+        
     }
     pesquisar(inputID){
         let _desenhaPesquisa = new DesenhaPesquisa(document.querySelector('#dppesquisar'));
@@ -172,17 +219,23 @@ class SubwindowValoresContoller{
             
         });
     }
-    selectPesquisa(nome, boadica, id, preco){
+    selectPesquisa(nome, boadica, ps_id, preco){
         //var produto é a mesmíssima coisa q var pesquisa, só tem nome diferente pq eu ou retardado
         let pCount = document.querySelectorAll('.pesquisa');
-        let produto = document.querySelector(`#pesquisa${pCount.length-1}`);
+        let vCount = document.querySelectorAll('.valor');
 
-        let vCount = document.querySelectorAll('.valor')
+        let produto = document.querySelector(`#pesquisa${pCount.length-1}`);
+        let fechar = document.querySelector(`#fechar${pCount.length-1}`)
+        
+        //pega o valor da OS pra atribuir ao produto, isso de jeito nenhum deveria sair do DOM, mas nois é brasileiro.
+        let osV = document.querySelector('#os2').textContent 
+        
         
         produto.classList.add('pesquisado');
         produto.setAttribute('readonly', 'true');
-        produto.setAttribute('onclick', `subwindowValores.showInfos(${id})`);
-       
+        produto.setAttribute('onclick', `subwindowValores.showInfos(${ps_id})`);
+        
+        
 
         let lastInput = pCount.length - 1
         pCount[lastInput].value = nome
@@ -192,19 +245,24 @@ class SubwindowValoresContoller{
 
         this.divLista.classList.add('hidden')
 
-        let awaitBoadica = this.getDataBoadica(id)
+        let awaitBoadica = this.getDataBoadica(ps_id)
         let awaitProduto = this.getDataProduto()
+        
+
+        
         
         awaitProduto.then(produtos=>{
             
+            const dados = this._montarEquipProduto(osV, ps_id, nome, valor.value).data
+            
             const options = {
-                method: 'post',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(produtos)
+                body: JSON.stringify(dados)
             };
-            fetch('/atualizarapi3', options)
+            fetch('/equipproduto', options)
 
             awaitBoadica.then(bd=>{
             
@@ -231,13 +289,27 @@ class SubwindowValoresContoller{
             let totalDom = document.getElementById('total');
             totalDom.textContent = totalTotal
             console.log(totalTotal)
-        })                    
+        })
+                          
+    }
+    _montarEquipProduto(os, ps_id, nome, valor){
+        return new FormularioEquipProduto(
+            os,
+            ps_id,
+            nome,
+            valor
+        )
     }
 
     showInfos(id){
         console.log(id)
+        let _desenhaEnderBoadica = new DesenhaOrcamentoEnder(document.querySelector('#window_boadica'))
+        
+        
         let awaitBoadica = this.getDataBoadica(id)
-        awaitBoadica.then(bd=>{      
+        awaitBoadica.then(bd=>{ 
+            _desenhaEnderBoadica.formato(bd)
+            _desenhaEnderBoadica.update(bd)
             console.log(bd)
                    
         })

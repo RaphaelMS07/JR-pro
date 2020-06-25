@@ -12,9 +12,10 @@ class ProdutoDAO{
                                             custo,
                                             fornecedor,
                                             estoque,                                            
-                                            datastamp) VALUES (?, ?, ?, ?, ?, ?, ?)`, 
+                                            datastamp,
+                                            tipo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
             [
-                produto.nome, produto.boadica, produto.valor, produto.custo, produto.fornecedor, produto.estoque, new Date().getTime()
+                produto.nome, produto.boadica, produto.valor, produto.custo, produto.fornecedor, produto.estoque, new Date().getTime(), produto.tipo
             ],
             (erro)=>{
                 if(erro){

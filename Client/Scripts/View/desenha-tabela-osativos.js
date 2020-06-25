@@ -9,15 +9,15 @@ class TabelaDesenhador extends Desenhador{
         return `
                     <thead>
                         <tr>
-                            <th class="cabecalho ponta_esquerda" onclick="listaController.sortTable(0)"></th>
-                            <th class="cabecalho" onclick="listaController.sortTable(1)">Cliente</th>
-                            <th class="cabecalho" onclick="listaController.sortTable(2)">OS</th>
-                            <th class="cabecalho" onclick="listaController.sortTable(3)">Modelo</th>
-                            <th class="cabecalho hidden" onclick="listaController.sortTable(4)">N° Serial</th>
-                            <th class="cabecalho" onclick="listaController.sortTable(5)">Defeito</th>
-                            <th class="cabecalho" onclick="listaController.sortTable(6)">status</th>
-                            <th class="cabecalho" onclick="listaController.sortTable(7)">Data de entrada</th>
-                            <th class="cabecalho  ponta_direita" onclick="listaController.sortTable(0)"></th>
+                            <th class="cabecalho2 ponta_esquerda" onclick="listaController.sortTable(0)"></th>
+                            <th class="cabecalho2" onclick="listaController.sortTable(1)">Cliente</th>
+                            <th class="cabecalho2" onclick="listaController.sortTable(2)">OS</th>
+                            <th class="cabecalho2" onclick="listaController.sortTable(3)">Modelo</th>
+                            <th class="cabecalho2 hidden" onclick="listaController.sortTable(4)">N° Serial</th>
+                            <th class="cabecalho2" onclick="listaController.sortTable(5)">Defeito</th>
+                            <th class="cabecalho2" onclick="listaController.sortTable(6)">status</th>
+                            <th class="cabecalho2" onclick="listaController.sortTable(7)">Data de entrada</th>
+                            <th class="cabecalho2  ponta_direita" onclick="listaController.sortTable(0)"></th>
                         </tr>
                     </thead>
                     <tbody>

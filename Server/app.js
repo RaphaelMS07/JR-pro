@@ -102,7 +102,16 @@ app.post('/equipproduto', (request, response)=>{ //isso aqui é sobre produtos a
         stts : 'Succ'
     })
 })
+app.get('/equipproduto/:id', (request, response)=>{
+    const id = request.params.id
+    equipProdutoDao = new equipProdutoDAO(dataStore);
+    equipProdutoDao.getAllbyID(id).then(resp=>{
+        response.json(resp)
+    }).catch(erro=> console.log('deu ruim na pesquisa de produto por os em app.get ', erro))
+})
+                                  
 app.delete('/equipproduto', (request, response)=>{
+    console.log(request.body)
     equipProdutoDao = new equipProdutoDAO(dataStore);
     equipProdutoDao.delete(request.body).then(()=>response.status(200).end())
                                         .catch(erro=> console.log('deu ruim ao deletar equipproduto em app.delete ', erro))

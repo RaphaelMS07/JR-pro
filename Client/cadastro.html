@@ -84,6 +84,12 @@
             <button class="fechar3 fechar hidden">x</button>
             <form class="form3" onsubmit="formController.adicionarProduto(event)"> 
                 <div class="form_servico" id="form_servico">
+                        <div>
+                            <input type="radio" name="tipo" id="produto_radio">
+                            <label for="produto_radio" class="legenda3_menor-ativado">Produto</label>
+                            <input type="radio" name="tipo" id="produto_radio">
+                            <label for="produto_radio" class="legenda3_menor-ativado">Serviço</label>
+                        </div>
                     
                         <label for="nome3" class="legenda3">Descrição do serviço ou produto</label>
                         <input type="text" id="nome3" class="caixa_texto3 radius"  placeholder="Pesquisar ou cadastrar" autocomplete="off" required>         

@@ -18,9 +18,10 @@ class EquipDAO{
                                            valor_servico,
                                            valor_hardware,
                                            valor_lucro,
-                                           data_retirada) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
+                                           valor_total,
+                                           data_retirada) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
             [
-                equip.id, equip.modelo, equip.serial, equip.def_alegado, equip.obs, new Date().getTime(), 'Não orçado', "", "", "", "", "", "", "",
+                equip.id, equip.modelo, equip.serial, equip.def_alegado, equip.obs, new Date().getTime(), 'Não orçado', "", "", "", "", "", "", "",""
             ],
             (erro)=>{
                 if(erro){

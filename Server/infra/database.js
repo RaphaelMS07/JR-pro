@@ -38,7 +38,8 @@ dataStore.serialize(function(){
         servico VARCHAR(255),
         valor_servico VARCHAR(25),
         valor_hardware VARCHAR(25),
-        valor_lucro VARCHAR(25),        
+        valor_lucro VARCHAR(25),
+        valor_total VARCHAR(25),     
         data_retirada INTEGER(255),
         data_orcamento INTEGER(255),
         tecnico VARCHAR(255)     
@@ -80,7 +81,8 @@ dataStore.serialize(function(){
         custo VARCHAR(25),
         fornecedor VARCHAR(255),
         estoque INTEGER(25),        
-        datastamp INTEGER(255)
+        datastamp INTEGER(255),
+        tipo VARCHAR(25)
     )`);
         
     });

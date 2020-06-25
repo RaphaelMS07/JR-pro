@@ -27,7 +27,7 @@ main{
 
 /* REFERENTE A RESOLUÇÃO HORIZONTAL 1024 */
 /* sobre o cabeçalho da tabela */
-th {
+.cabecalho2 {
     width: 500px;
     height: 20px;
     vertical-align: middle;   
@@ -37,11 +37,11 @@ th {
     
 
 }
-th:hover{
+.cabecalho2:hover{
     background: rgb(46, 0, 34);
     cursor: default;
 }
-th:active{
+.cabecalho2:active{
     background: rgb(109, 0, 80);
 }
 
@@ -236,6 +236,7 @@ th:active{
     margin-top: 3px;
     color: #ffffff;
     font-size: 17px;
+    padding-right: 1px;
 }
 
 
@@ -402,24 +403,39 @@ th:active{
 /* Sobre window de orcamento */
 .window2{
     /* herda de window (linha 189) */
+    padding: 10px;
     z-index: 2;
     bottom: -60px;
     left: -300px;
     height: 500px;
     width: 600px;  
 }
-.main_grid{
-    display: grid;
-    grid-template-columns: repeat(2, 45%);
-    align-items: center;
-    grid-gap: 5px;    
-
-
+.legenda_window2{
+    margin-left: 2px;
+    padding-top: 5px;
+    color: #ffffff;
+    font-size: 17px;
+    padding-right: 1px;
 }
+.cabecalho3{
+    margin-top: 10px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+.fechar_bd{
+    padding: 2px 10px 2px 9px;
+    border-radius: 25px;
+    
+    font-size: 20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
 .pseudo-textbox{      
     background-color: white;
     margin: 20px;
-    height: 250px;
+    height: 300px;
     width: 560px;
     z-index: 3;
     border-radius: 5px;
@@ -437,6 +453,10 @@ th:active{
     background-color: white;
     border: rgb(101, 150, 255) solid 2px;
     border-radius: 5px;
+    transition: all 0.5s;
+}
+.add_butt:hover{
+    background-color: rgb(186, 217, 252);
 }
 .pesquisa{
     background-color: white;
@@ -500,4 +520,97 @@ li{
     background-color: rgb(248, 223, 219);
     padding: 2px 2px;
     cursor: default;
+}
+/* parte de baixo de window orcamento */
+.rodape{
+    display: inline-block;
+    margin-left: 20px;
+}
+.legenda_valor{
+    display: inline-block;
+}
+#ok{
+    bottom: 27px;
+    position: absolute;
+    left: 525px;
+}
+
+/* sobre lista do boadica */
+.window3{
+    
+    z-index: 5;
+    display: table;
+    width: 650px;
+    height: 450px;
+}
+.table2{    
+    margin: 10px;
+    z-index: 5;
+}
+#id_tbody{
+    width: 650px;
+    height: 400px;
+    display: block;
+    overflow: auto;
+}
+#id_thead{
+    display: inherit;
+    width: 100%;
+}
+.lista{
+    font-size: 20px;
+    background-color: white;
+    width: 50%;
+}
+li{
+    border: black solid 1px;
+    padding: 0px 5px 0 5px;
+}
+.cabecalho4{
+    padding-top: 5px;
+    padding-left: 5px;
+    text-align: left;
+    height: 25px;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: tomato;
+}
+
+#cab1{
+    width: 64%;
+}
+#cab2{
+    width: 13%;
+}
+    
+}
+
+#ender2{
+    text-align: left;
+    width: 450px;
+}
+#preco2{
+    text-align: left;
+    vertical-align: middle;
+    width: 70px;
+    
+}
+#loja{
+    text-align: left;
+    vertical-align: middle;
+    width: 125px;
+}
+.rows{
+    /* overflow: auto; */
+    padding: 5px;
+    color: tomato;
+    
+    
+    background: rgb(32, 32, 32);
+}
+.linha2{
+    text-align: left;
+    padding: 5px;
+    border: black solid 1px;
 }

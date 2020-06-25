@@ -32,9 +32,14 @@ class EquipProdutoDAO{
             })
         })
     }
-    getId(){
+    getAllbyID(os){
         return new Promise((resolve, reject) =>{
-            this._db.all(`SELECT id FROM equipProduto`, (erro, result) =>{
+            this._db.all(`SELECT * FROM equipProduto WHERE os = ?`
+            ,
+            [
+                os
+            ],
+            (erro, result) =>{
                 if (erro){
                     return reject ('Não foi possível selecionar ID de equipProduto')
                 }                                
@@ -43,7 +48,7 @@ class EquipProdutoDAO{
         })
     }
     update(produto){
-        console.log(equipamento, 'dentro de update equip')
+        console.log(produto, 'dentro de update equip')
         
         return new Promise((resolve, reject) =>{
             this._db.run(`
@@ -69,16 +74,16 @@ class EquipProdutoDAO{
                 })
         })
     }
-    delete(produto){
+    delete(dado){
         return new Promise((resolve, reject)=>{
             this._db.get(`DELETE FROM equipProduto WHERE pe_id = ?`,[
-                    produto.pe_id
+                dado.pe_id
             ],
             (erro, result)=>{
                 if (erro) {
                     return reject("Não foi possivel excluir", produto)
                 }
-                console.log('Dado temporário removido com sucesso!')
+                console.log('Produto atrelado ao equipamento removido com sucesso: ', dado.pe_id)
                 return resolve(result)
             })
         })
