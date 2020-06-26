@@ -434,7 +434,7 @@ main{
 
 .pseudo-textbox{      
     background-color: white;
-    margin: 20px;
+    margin: 20px 20px 0px 20px;
     height: 300px;
     width: 560px;
     z-index: 3;
@@ -532,7 +532,23 @@ li{
 #ok{
     bottom: 27px;
     position: absolute;
-    left: 525px;
+    left: 500px;
+}
+#refresh{
+    bottom: 27px;
+    padding: 0px 7px 2px 6px;
+    font-size: 25px;
+    position: absolute;
+    left: 442px
+
+}
+#printer{
+    bottom: 27px;
+    padding: 0px 7px 2px 6px;
+    font-size: 25px;
+    position: absolute;
+    left: 385px
+
 }
 
 /* sobre lista do boadica */

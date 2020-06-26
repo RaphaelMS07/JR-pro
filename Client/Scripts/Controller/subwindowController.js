@@ -53,6 +53,7 @@ class SubWindowController {
                     })
                     let newData = this._listaConvertida.conversor(this._clientes, this._equipamentos)
                     
+                    
                     for(let i=0; i<newData.length; i++){
                         let clienteData = newData[i]
                         let clienteOs = clienteData.os                                       
@@ -112,10 +113,10 @@ class SubWindowController {
             awaitEquip.then(datas => {
                 datas.forEach(data => {
                     this._equipamentos.push(data)
-                }) 
+                })
                 
                 let newData = this._listaConvertida.conversor(this._clientes, this._equipamentos)
-
+                
                 for(let i=0; i<datas.length; i++){
                     let equipData = datas[i]         
                     
@@ -174,6 +175,8 @@ class SubWindowController {
                     this._equipamentos.push(data)
                 })
                 let newData = this._listaConvertida.conversor(this._clientes, this._equipamentos)
+                
+                
                 for(let i=0; i<datas.length; i++){
                     let equipData = datas[i]         
                     
@@ -191,29 +194,32 @@ class SubWindowController {
                             body: JSON.stringify(equipData)
                         };
                         fetch('/atualizar', options);
-                        if(equipData.status == "Orçado"){
-                             //mantém tempData sempre vazio antes de adicionar dados
-                            const options2 = {
-                                method: 'DELETE'                
-                            };
-                            //adiciona dados do cliente e quipamento temporários
-                            const options3 = {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify(newData[i])
-                            };
 
-                            fetch('/temps', options2).then(option3=>{
-                                fetch('/temps', options3).then(()=>{
-                                    location.reload();
-                                });
-                            })
-                            let newTab = window.open('http://localhost/printOrcamento.html')
-                            setTimeout(() => {
-                                newTab.close()
-                            }, 1000); 
+
+                        if(equipData.status == "Orçado"){
+                            //  //mantém tempData sempre vazio antes de adicionar dados
+                            // const options2 = {
+                            //     method: 'DELETE'                
+                            // };
+                            // //adiciona dados do cliente e quipamento temporários
+                            // const options3 = {
+                            //     method: 'POST',
+                            //     headers: {
+                            //         'Content-Type': 'application/json'
+                            //     },
+                            //     body: JSON.stringify(newData[i])
+                            // };
+
+                            // fetch('/temps', options2).then(option3=>{
+                            //     fetch('/temps', options3).then(()=>{
+                            //         location.reload();
+                            //     });
+                            // })
+                            // let newTab = window.open('http://localhost/printOrcamento.html')
+                            // setTimeout(() => {
+                            //     newTab.close()
+                            // }, 500); 
+                            location.reload();
                         }else{
                             location.reload();
                         }                                                                           

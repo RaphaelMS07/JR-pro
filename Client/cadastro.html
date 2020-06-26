@@ -82,15 +82,16 @@
             </form>
             <span class=borderer>espaço</span>
             <button class="fechar3 fechar hidden">x</button>
-            <form class="form3" onsubmit="formController.adicionarProduto(event)"> 
+            <form class="form3" id="id_form3" onsubmit="formController.adicionarProduto(event)" action="formController.printar_radio(event)"> 
                 <div class="form_servico" id="form_servico">
-                        <div>
-                            <input type="radio" name="tipo" id="produto_radio">
+                        <div id="tipos" class="c_tipo hidden">
+                            <input type="radio" name="tipo" id="produto_radio" value="Produto" checked>
                             <label for="produto_radio" class="legenda3_menor-ativado">Produto</label>
-                            <input type="radio" name="tipo" id="produto_radio">
-                            <label for="produto_radio" class="legenda3_menor-ativado">Serviço</label>
+                            <input type="radio" name="tipo" id="servico_radio" value="Serviço" >
+                            <label for="servico_radio" class="legenda3_menor-ativado">Serviço</label>
                         </div>
-                    
+                            
+                        
                         <label for="nome3" class="legenda3">Descrição do serviço ou produto</label>
                         <input type="text" id="nome3" class="caixa_texto3 radius"  placeholder="Pesquisar ou cadastrar" autocomplete="off" required>         
                         
@@ -107,11 +108,15 @@
                         <input type="text" id="fornecedor" class="caixa_texto3 radius" placeholder="Apenas se não possuir link">                      
 
                         <label for="estoque" class="legenda3" id="valor" autocomplete="off">Estoque</label>
-                        <input type="text" id="estoque" class="caixa_texto3 radius" placeholder="Apenas se não possuir link">          
+                        <input type="text" id="estoque" class="caixa_texto3 radius" placeholder="Apenas se não possuir link">
+                </div>
+                
+                
                     
-                        <input type="submit" id='submeter' value="Cadastrar" class="butt butt_rosa hidden" >
+                <input type="submit" id='submeter3' value="Cadastrar" class="butt butt_rosa hidden" >
                            
             </form>
+            
         </main>
         
         <script src="Scripts/View/view.js"></script> 

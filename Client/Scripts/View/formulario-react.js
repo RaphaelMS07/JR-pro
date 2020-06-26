@@ -179,7 +179,8 @@ var formProduto = document.querySelector(".form3");
 var boxProduto = document.querySelectorAll(".caixa_texto3");
 var legendProduto = document.querySelectorAll(".legenda3");
 var fechadura3 = document.querySelector('.fechar3');
-var cadastrar3 = document.querySelector('.butt_rosa')
+var cadastrar3 = document.querySelector('.butt_rosa');
+var radioButt = document.querySelector('.c_tipo');
 
 
 function semiTransForm3(){    
@@ -188,7 +189,8 @@ function semiTransForm3(){
 
 showInside3 = function(){    
     fechadura3.classList.remove('hidden');
-    cadastrar3.classList.remove('hidden');    
+    cadastrar3.classList.remove('hidden');
+    radioButt.classList.remove('hidden')
     bordador1.classList.add('hidden');
 
     for(i=0; i<boxProduto.length; i++){
@@ -223,7 +225,8 @@ function unTransFormAbsolute3(){
     formProduto.classList.add("form3");
     cadastrar3.classList.add('hidden');    
     fechadura3.classList.add('hidden');
-    bordador1.classList.remove('hidden');       
+    bordador1.classList.remove('hidden');
+    radioButt.classList.add('hidden')     
 }
 
 formProduto.addEventListener('click', showInside3);
@@ -261,5 +264,5 @@ formProduto.addEventListener('mouseenter', function(){
 //interações entre form1 e form2
 var buttSubmit1 = document.querySelector('#submeter')
 
-buttSubmit1.addEventListener('click', semiTransForm3)
-buttSubmit1.addEventListener('click', showInside3)
+buttSubmit1.addEventListener('click', semiTransForm2)
+buttSubmit1.addEventListener('click', showInside2)

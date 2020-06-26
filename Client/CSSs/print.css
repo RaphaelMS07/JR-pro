@@ -84,3 +84,23 @@ h4{
 p{
     font-size: 18px;
 }
+
+/* sobre print de orçamento */
+.descricao{
+    width: 8cm;
+    display: inline-block;
+    margin: 5px 5px 0px 5px;
+}
+.rs{
+    
+}
+.valores{
+    text-align: right;
+    margin-left: 10px;
+    
+}
+.descricao_total{
+    width: 8cm;
+    display: inline-block;
+    margin: 10px 5px 0px 5px;
+}

@@ -81,6 +81,11 @@ class SubwindowValoresContoller{
         }
 
     }
+
+    goto(os){
+        let newTab = window.open(`http://localhost/printOrcamento.html?os=${os}`)
+        
+    }
     fechar(buttid){
         console.log(buttid)
         let janela = document.querySelector('#mini_window2');
@@ -252,8 +257,16 @@ class SubwindowValoresContoller{
         
         
         awaitProduto.then(produtos=>{
-            
-            const dados = this._montarEquipProduto(osV, ps_id, nome, valor.value).data
+            let tipo = 'foda-se'
+
+            for(let o=0; o<produtos.length; o++){
+                let produto = produtos[o];
+                if(produto.ps_id == ps_id){
+                    tipo = produto.tipo                    
+                }
+                
+            }
+            const dados = this._montarEquipProduto(osV, ps_id, nome, valor.value, tipo).data
             
             const options = {
                 method: 'POST',
@@ -288,16 +301,17 @@ class SubwindowValoresContoller{
 
             let totalDom = document.getElementById('total');
             totalDom.textContent = totalTotal
-            console.log(totalTotal)
+            
         })
                           
     }
-    _montarEquipProduto(os, ps_id, nome, valor){
+    _montarEquipProduto(os, ps_id, nome, valor, tipo){
         return new FormularioEquipProduto(
             os,
             ps_id,
             nome,
-            valor
+            valor,
+            tipo
         )
     }
 

@@ -42,14 +42,15 @@ dataStore.serialize(function(){
         valor_total VARCHAR(25),     
         data_retirada INTEGER(255),
         data_orcamento INTEGER(255),
-        tecnico VARCHAR(255)     
+        tecnico VARCHAR(255)   
     )`);
     dataStore.run(`CREATE TABLE IF NOT EXISTS equipProduto(
         pe_id INTEGER PRIMARY KEY AUTOINCREMENT,
         os INTEGER(25),
         ps_id INTEGER(25),
         nome VARCHAR(255),
-        valor VARCHAR(25)
+        valor VARCHAR(25),
+        tipo VARCHAR(25)
 
     )`)
 

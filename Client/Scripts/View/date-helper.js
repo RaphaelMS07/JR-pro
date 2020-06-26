@@ -20,7 +20,15 @@ class DateHelper {
 
     static datastampParaData(datastamp) {
         let dia = new Date(datastamp)  //parece q o *1 ajuda a converter em número, vai saber....
-        return `${dia.getDate()}/${dia.getMonth()+1}/${dia.getFullYear()}` // por algum motivo o mês funciona diferente do resto. como se fosse index de uma lista.
+        let mesTratado =''
+        if(dia.getMonth()+1<10){
+            let mes = dia.getMonth()+1
+            mesTratado = '0'+mes
+        }else{
+            mesTratado = dia.getMonth()+1
+        }
+        console.log(mesTratado)
+        return `${dia.getDate()}/${mesTratado}/${dia.getFullYear()}` // por algum motivo o mês funciona diferente do resto. como se fosse index de uma lista.
         
     }
 

@@ -23,10 +23,14 @@ class FormController {
         this._inputCusto = $('#custo');
         this._inputFornecedor = $('#fornecedor');
         this._inputEstoque = $('#estoque');
-
+        
+        this._divTipo = document.getElementById('tipos');
+        
         this._listaDesenhador = new DesenhaPesquisa($('#divPesquisa'))
+        
 
     }
+   
     adicionarCliente(event){
         event.preventDefault();
         
@@ -80,6 +84,20 @@ class FormController {
 
     adicionarProduto(event){
         event.preventDefault();
+
+        event.preventDefault();
+        
+        let inputTipoProduto = document.getElementById('produto_radio');
+        let inputTipoServico = document.getElementById('servico_radio');
+
+        if(inputTipoProduto.checked){
+            this._divTipo.value = inputTipoProduto.value;
+            
+        }
+        if(inputTipoServico.checked){
+            this._divTipo.value = inputTipoServico.value;
+            
+        }
         
         const dados = this._montarFormProduto().data
         
@@ -186,6 +204,8 @@ class FormController {
     }
 
     _montarFormProduto(){
+        console.log(this._divTipo.value)
+        
         return new FormularioProduto(
             this._inputProdudoNome.value,
             this._inputBoadica.value,
@@ -193,6 +213,8 @@ class FormController {
             this._inputCusto.value,
             this._inputFornecedor.value,
             this._inputEstoque.value,
+            this._divTipo.value
+            
         )
     }
 

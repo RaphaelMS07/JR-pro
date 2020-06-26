@@ -143,7 +143,3 @@ dicionario = {
 js = json.dumps(dicionario)
 print(js)
 sys.stdout.flush()
-
-# json_bd = open('boadica.json', 'w')
-# json_bd.write(js)
-# json_bd.close()

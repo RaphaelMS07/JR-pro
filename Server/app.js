@@ -97,6 +97,7 @@ app.get('/api2', (request, response) =>{
 
 app.post('/equipproduto', (request, response)=>{ //isso aqui é sobre produtos atrelados a equipamentos.
     equipProdutoDao = new equipProdutoDAO(dataStore);
+    // console.log(request.body)
     equipProdutoDao.adicionar(request.body);
     response.json({
         stts : 'Succ'

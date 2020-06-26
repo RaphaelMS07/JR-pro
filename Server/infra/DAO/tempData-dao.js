@@ -24,7 +24,7 @@ class TempDataDAO{
                                         data_orcamento,
                                         tecnico) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, 
             [
-                temp.os, temp.cliente_nome, temp.cliente_telefone, temp.modelo, temp.serial, temp.def_alegado, temp.obs,  new Date().getTime(), temp.status, temp.orcamento, "", "", "", "", "", "", "", ""
+                temp.os, temp.cliente_nome, temp.cliente_telefone, temp.modelo, temp.serial, temp.def_alegado, temp.obs,  new Date().getTime(), temp.status, temp.orcamento, "", "", temp.servico, temp.produto, "", "", "", ""
             ],
             (erro, result)=>{
                 if(erro){

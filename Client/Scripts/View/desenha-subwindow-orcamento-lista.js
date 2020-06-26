@@ -8,9 +8,23 @@ class DesenhaOrcamentoWindow extends Desenhador{
        
     }
     formato(model, os){
+        //retorna lista; cada item retorna: pe_id, os, ps_id, nome, tipo, valor
         let counter = 0
+        let counter2 = 0
+        let counter3 = 0
         for(let i=0; i<model.length; i++){
             let number = parseFloat(model[i].valor)
+            let item = model[i]
+            if(item.tipo == 'Produto'){
+                counter2 += number
+                console.log()
+            }
+            else if(item.tipo == 'Serviço'){
+                counter3 += number
+                console.log()
+            }
+            
+            
             counter += number
         }
         return `
@@ -43,16 +57,20 @@ class DesenhaOrcamentoWindow extends Desenhador{
                         <span class="legenda_window">TOTAL: </span>
                         <span id="total" class="legenda_window legenda_valor">R$ ${counter}</span>
                     </div>
+                    <br>
+                    <div class="legenda_window2">
+                        <span class="legenda_window">Peças: </span>
+                        <span id="total" class="legenda_window legenda_valor">R$ ${counter2} </span>
+                    </div>
                     <div class="legenda_window2">
                         <span class="legenda_window">Serviços: </span>
-                        <span id="total" class="legenda_window legenda_valor">R$  </span>
-                    </div>
-                    <div class="legenda_window2">
-                        <span class="legenda_window">produtos: </span>
-                        <span id="total" class="legenda_window legenda_valor">R$ </span>
+                        <span id="total" class="legenda_window legenda_valor">R$ ${counter3} </span>
                     </div>
                 </div>
-                <button class="butt" id="ok" title="fechar janela" onclick="subwindowValores.fechar(1)">OK </button>
+                
+                <button class="butt" id="printer" title="imprimir orçamento" onclick="subwindowValores.goto(${os})">&#x1f5b6;</button>
+                <button class="butt" id="refresh" title="atualizar alterações de preço" onclick="console.log('refreshed')">&#x1f5d8; </button>
+                <button class="butt" id="ok" title="fechar não cancela alterações!" onclick="subwindowValores.fechar(1)">Fechar </button>
             </section>
             <div id="window_boadica"></div>
                                  

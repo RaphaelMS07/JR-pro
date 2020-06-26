@@ -8,9 +8,10 @@ class EquipProdutoDAO{
                 `INSERT INTO equipProduto (os, 
                                            ps_id, 
                                            nome, 
-                                           valor) VALUES (?, ?, ?, ?)`, 
+                                           valor,
+                                           tipo) VALUES (?, ?, ?, ?, ?)`, 
             [
-                produto.os, produto.ps_id, produto.nome, produto.valor
+                produto.os, produto.ps_id, produto.nome, produto.valor, produto.tipo
             ],
             (erro)=>{
                 if(erro){
@@ -56,13 +57,15 @@ class EquipProdutoDAO{
                 os = ?,
                 ps_id = ?,
                 nome = ?,
-                valor = ?`
+                valor = ?,
+                tipo = ?`
                 ,
                 [
                     produto.os,
                     produto.ps_id,
                     produto.nome,
-                    produto.valor
+                    produto.valor,
+                    produto.tipo
                     
                 ],               
                 (erro)=>{
