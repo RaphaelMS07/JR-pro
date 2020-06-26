@@ -68,7 +68,7 @@ h4{
 .termo_responsabilidade{
     text-align: center;
     position: relative;
-    bottom: -15cm;
+    bottom: -14.5cm;
 }
 
 .setor1{
@@ -83,6 +83,9 @@ h4{
 }
 p{
     font-size: 18px;
+}
+.termo{
+    margin: 7px;
 }
 
 /* sobre print de orçamento */

@@ -40,12 +40,12 @@ class DesenhaPrintOs extends Desenhador{
             </section>
             <section class="termo_responsabilidade">
                 <h3>Termo de Responsabilidade:</h3>
-                <P>
+                <P  class="termo">
                     O cliente está ciente do prazo de 180 dias limite para fazer a retirada do equipamento. Caso o prazo não
                     seja cumprido, a empresa J&R informática poderá reivindicar o equipamento para fins de cobrir quaisquer
                     prejuízos referente ao serviço e as peças usadas no equipamento. O cliente também está ciente de valor de R$60,00 (sessenta reais) referente ao orçamento de notebooks caso o mesmo não aprove o orçamento.
                 </P>
-                <br>
+                
                 <p class="ass_client">Ass. Cliente: ______________________________________________________</p>
                 <br>
                 <p class="ass_jr">Ass. J&R Informática: ______________________________________________________</p>

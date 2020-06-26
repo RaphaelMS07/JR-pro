@@ -83,7 +83,9 @@ class SubwindowValoresContoller{
     }
 
     goto(os){
-        let newTab = window.open(`http://localhost/printOrcamento.html?os=${os}`)
+        let ip = "192.168.2.8"
+        
+        let newTab = window.open(`http://${ip}/printOrcamento.html?os=${os}`)
         
     }
     fechar(buttid){
@@ -93,8 +95,7 @@ class SubwindowValoresContoller{
         if(buttid == 1){
             janela.classList.add('hidden');
         }
-        if(buttid == 2){
-            console.log('foda-se')
+        if(buttid == 2){            
             janela2.classList.add('hidden');         
         }
         
@@ -224,6 +225,33 @@ class SubwindowValoresContoller{
             
         });
     }
+    atualizarPreco(os){
+        let allValor = document.querySelectorAll('.valor');
+        let awaitEquipProduto = this.getDataEquipProduto(os)
+        awaitEquipProduto.then(equipProduto=>{
+            let listaAtualizada = []
+            for(let i=0; i<allValor.length; i++){
+                let valorAtual = allValor[i].value
+                let idAtual = equipProduto[i].pe_id
+                listaAtualizada.push([valorAtual, idAtual])
+                console.log(listaAtualizada[i])
+                
+                const options = {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(listaAtualizada[i])
+                };
+                fetch('/equipproduto', options)
+    
+            }
+
+        })
+        
+        
+
+    }
     selectPesquisa(nome, boadica, ps_id, preco){
         //var produto é a mesmíssima coisa q var pesquisa, só tem nome diferente pq eu ou retardado
         let pCount = document.querySelectorAll('.pesquisa');
@@ -316,16 +344,16 @@ class SubwindowValoresContoller{
     }
 
     showInfos(id){
-        console.log(id)
+        
         let _desenhaEnderBoadica = new DesenhaOrcamentoEnder(document.querySelector('#window_boadica'))
-        
-        
+      
         let awaitBoadica = this.getDataBoadica(id)
-        awaitBoadica.then(bd=>{ 
+        
+        awaitBoadica.then(bd=>{
+            console.log("id")
             _desenhaEnderBoadica.formato(bd)
             _desenhaEnderBoadica.update(bd)
-            console.log(bd)
-                   
+                               
         })
 
     }

@@ -158,7 +158,12 @@ app.put('/atualizarapi3', (request, response)=>{ //se colocar a mesma rota do ap
               .then(()=> response.status(200).end)
               .catch(erro=> console.log('deu ruim no put /atualizarapi3', erro))
 })
-
+app.put('/equipproduto', (request, response)=>{ //se colocar a mesma rota do api3, vai ficar lento pra kralho!
+    let equipProdutoDao = new equipProdutoDAO(dataStore);
+    equipProdutoDao.update(request.body)
+              .then(()=> response.status(200).end)
+              .catch(erro=> console.log('deu ruim no put /equipproduto', erro))
+})
 
 //sobre pesquisas
 app.post('/pesquisa1', (request, response) =>{

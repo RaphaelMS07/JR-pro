@@ -69,7 +69,7 @@ class DesenhaOrcamentoWindow extends Desenhador{
                 </div>
                 
                 <button class="butt" id="printer" title="imprimir orçamento" onclick="subwindowValores.goto(${os})">&#x1f5b6;</button>
-                <button class="butt" id="refresh" title="atualizar alterações de preço" onclick="console.log('refreshed')">&#x1f5d8; </button>
+                <button class="butt" id="refresh" title="atualizar alterações de preço" onclick="subwindowValores.atualizarPreco('${os}')">&#x1f5d8; </button>
                 <button class="butt" id="ok" title="fechar não cancela alterações!" onclick="subwindowValores.fechar(1)">Fechar </button>
             </section>
             <div id="window_boadica"></div>

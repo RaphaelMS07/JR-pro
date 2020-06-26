@@ -62,14 +62,15 @@ class PrintOrcamentoController{
                     let counter3 = 0;
                     dataEquipProduto.forEach(equipProduto=>{
                         if(equipProduto.tipo == "Produto"){
+                            
                             counter2 += parseFloat(equipProduto.valor);
-                            listaServ.push([equipProduto.nome, equipProduto.valor])
+                            listaServ.push([equipProduto.nome, equipProduto.valor, equipProduto.pe_id])
                             
                         }
                        
                         if(equipProduto.tipo == "Serviço"){
                             counter3 += parseFloat(equipProduto.valor);
-                            listaProd.push([equipProduto.nome, equipProduto.valor])
+                            listaProd.push([equipProduto.nome, equipProduto.valor, equipProduto.pe_id])
                             
                         }
 
@@ -78,7 +79,7 @@ class PrintOrcamentoController{
                         
                     })
                     listaFinal.push(counter.toFixed(2), counter2.toFixed(2), counter3.toFixed(2))
-                    console.log(listaFinal)
+                    
                 
                     this._desenhaPrintOorcamento.formato(listaFinal, listaProd, listaServ);
                     this._desenhaPrintOorcamento.update(listaFinal, listaProd, listaServ);

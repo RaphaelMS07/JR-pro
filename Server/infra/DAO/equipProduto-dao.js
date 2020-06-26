@@ -49,23 +49,22 @@ class EquipProdutoDAO{
         })
     }
     update(produto){
-        console.log(produto, 'dentro de update equip')
+        console.log(produto, 'dentro de update equipproduto')
         
         return new Promise((resolve, reject) =>{
             this._db.run(`
-                UPDATE equipProduto SET
-                os = ?,
-                ps_id = ?,
-                nome = ?,
-                valor = ?,
-                tipo = ?`
+                UPDATE equipProduto SET                 
+                
+                valor = ?
+                
+                WHERE pe_id = ?`
                 ,
                 [
-                    produto.os,
-                    produto.ps_id,
-                    produto.nome,
-                    produto.valor,
-                    produto.tipo
+                                      
+                    
+                    produto[0],
+                    
+                    produto[1]
                     
                 ],               
                 (erro)=>{
