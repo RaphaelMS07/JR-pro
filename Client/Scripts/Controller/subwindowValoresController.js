@@ -83,7 +83,7 @@ class SubwindowValoresContoller{
     }
 
     goto(os){
-        let ip = "192.168.0.101"   //isso pode alterar de acordo com o ambiente. Tente fazer essa porra ficar mais visível, ou até mesmo alterável no forntend, fila daputa!
+        let ip = "localhost"   //isso pode alterar de acordo com o ambiente. Tente fazer essa porra ficar mais visível, ou até mesmo alterável no forntend, fila daputa!
         
         let newTab = window.open(`http://${ip}/printOrcamento.html?os=${os}`)
         
