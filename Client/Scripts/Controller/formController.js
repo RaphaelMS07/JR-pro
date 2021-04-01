@@ -76,7 +76,7 @@ class FormController {
         fetch('/api2', options)        
 
         this._limpaform2();
-        let ip = '192.168.0.101'
+        let ip = 'localhost'
         let newTab = window.open(`http://${ip}/imprimir.html`)
         setTimeout(() => {
             newTab.close()

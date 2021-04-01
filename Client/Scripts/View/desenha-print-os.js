@@ -43,7 +43,7 @@ class DesenhaPrintOs extends Desenhador{
                 <P  class="termo">
                     O cliente está ciente do prazo de 180 dias limite para fazer a retirada do equipamento. Caso o prazo não
                     seja cumprido, a empresa J&R informática poderá reivindicar o equipamento para fins de cobrir quaisquer
-                    prejuízos referente ao serviço e as peças usadas no equipamento. O cliente também está ciente de valor de R$60,00 (sessenta reais) referente ao orçamento de notebooks caso o mesmo não aprove o orçamento.
+                    prejuízos referente ao serviço, custos de armazenamento do aparelho e as peças usadas no equipamento. O cliente também está ciente de valor de R$60,00 (sessenta reais) referente ao orçamento caso o mesmo não o aprove.
                 </P>
                 
                 <p class="ass_client">Ass. Cliente: ______________________________________________________</p>

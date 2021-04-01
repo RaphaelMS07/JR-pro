@@ -600,7 +600,7 @@ li{
     width: 13%;
 }
     
-}
+
 
 #ender2{
     text-align: left;
@@ -629,4 +629,9 @@ li{
     text-align: left;
     padding: 5px;
     border: black solid 1px;
+}
+
+.comunicado{
+    font-size: 8px;
+    color: red;
 }

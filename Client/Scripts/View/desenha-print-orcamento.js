@@ -20,7 +20,7 @@ class DesenhaPrintOrcamento extends Desenhador{
             <section class="sobre_orcamento">
                 <div class="diagnostico setor1">
                     <h3 class="subtitulo">${model[3]}</h3>
-                    <br>
+                    
                     <h3 class="subtitulo">Diagnóstico: </h3>
                     <p>${model[4]}</p>
                 </div>
@@ -68,7 +68,14 @@ class DesenhaPrintOrcamento extends Desenhador{
                 </div>                    
                 <div class="total setor2">
                     <a>Valor Total: </a><a>${model[5]} </a>
+                    <p class= "textoPequeno">Em até ${"VARIÁVEL"}x sem juros no cartão</p>
                 </div>
+                <div class="totalDesconto setor2">                    
+                    <p>Valor Total: </a><a>${model[5]} </p>
+                    <p class= "textoPequeno">Com desconto de ${"VARIÁVEL"} à vista no dinheiro ou por pix</p>
+                    
+                </div>
+               
                 <div class="comunicado setor2"> 
                     <p>Prazo de entrega até 3 dias úteis apartir da data de aprovação do serviço.</p>
                     <br>                    
