@@ -226,11 +226,14 @@ class SubwindowValoresContoller{
         });
     }
     atualizarPreco(os){
+        console.log('debug1')
         let allValor = document.querySelectorAll('.valor');
         let awaitEquipProduto = this.getDataEquipProduto(os)
         awaitEquipProduto.then(equipProduto=>{
+            console.log('debug2')
             let listaAtualizada = []
             for(let i=0; i<allValor.length; i++){
+                console.log('debug3')
                 let valorAtual = allValor[i].value
                 let idAtual = equipProduto[i].pe_id
                 listaAtualizada.push([valorAtual, idAtual])
@@ -244,6 +247,7 @@ class SubwindowValoresContoller{
                     body: JSON.stringify(listaAtualizada[i])
                 };
                 fetch('/equipproduto', options)
+                console.log('debug4')
     
             }
 
