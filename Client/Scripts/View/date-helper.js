@@ -47,4 +47,9 @@ class DateHelper {
         var resp = texto.replace(",", ".")
         return resp
     }
+
+    static pontoParaVirgula(texto){
+        var resp = texto.replace('.', ',')
+        return resp
+    }
 }

@@ -51,20 +51,20 @@ class SubwindowValoresContoller{
         awaitProduto.then(pd=>{  //isso aqui tá uma zona do kralho.
             
             
-            const options = {
-                method: 'GET'            
-            };
-            fetch(`/python/${pd[1].ps_id}`, options)
-            //pega o id do produto e passa como parametro de URL pro GET em app.js
+            // const options = {
+            //     method: 'GET'            
+            // };
+            // fetch(`/python/${pd[1].ps_id}`, options)
+            // //pega o id do produto e passa como parametro de URL pro GET em app.js
 
-            let awaitboadica = this.getDataBoadica(pd[1].ps_id);
+            // let awaitboadica = this.getDataBoadica(pd[1].ps_id);
             
-            awaitboadica.then(bd =>{                
-                //retorna os dados do link do boadica com base no parametro passado em produtos ali em cima,
-                //o parametro de URL entra na função runpy, vai para o python que pega a url do boadica referente ao produto
-                //e retorna todas as informações do site boadica em json. NEM EU TO ENTENDENDO MAIS ESSA PORRA DIREITO!
+            // awaitboadica.then(bd =>{                
+            //     //retorna os dados do link do boadica com base no parametro passado em produtos ali em cima,
+            //     //o parametro de URL entra na função runpy, vai para o python que pega a url do boadica referente ao produto
+            //     //e retorna todas as informações do site boadica em json. NEM EU TO ENTENDENDO MAIS ESSA PORRA DIREITO!
                 
-            })
+            // })
             
 
             awaitEquipProduto.then(ep=>{
@@ -309,17 +309,17 @@ class SubwindowValoresContoller{
             };
             fetch('/equipproduto', options)
 
-            awaitBoadica.then(bd=>{
+            // awaitBoadica.then(bd=>{
             
-                const options = {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(bd)
-                };
-                fetch('/atualizarapi3', options)
-            })
+            //     const options = {
+            //         method: 'PUT',
+            //         headers: {
+            //             'Content-Type': 'application/json'
+            //         },
+            //         body: JSON.stringify(bd)
+            //     };
+            //     fetch('/atualizarapi3', options)
+            // })
         }).then(()=>{
             let totalTotal = 0
             var express = RegExp('hidden', 'i')

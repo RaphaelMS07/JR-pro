@@ -84,8 +84,8 @@
             <button class="fechar3 fechar hidden">x</button>
             <form class="form3" id="id_form3" onsubmit="formController.adicionarProduto(event)" action="formController.printar_radio(event)"> 
                 <div class="form_servico" id="form_servico">
-                        <div id="tipos" class="c_tipo hidden">
-                            <input type="radio" name="tipo" id="produto_radio" value="Produto" checked>
+                        <div id="tipos" class="c_tipo hidden" required>
+                            <input type="radio" name="tipo" id="produto_radio" value="Produto" required>
                             <label for="produto_radio" class="legenda3_menor-ativado">Produto</label>
                             <input type="radio" name="tipo" id="servico_radio" value="Serviço" >
                             <label for="servico_radio" class="legenda3_menor-ativado">Serviço</label>
@@ -95,10 +95,10 @@
                         <label for="nome3" class="legenda3">Descrição do serviço ou produto</label>
                         <input type="text" id="nome3" class="caixa_texto3 radius"  placeholder="Pesquisar ou cadastrar" autocomplete="off" required>         
                         
-                        <label for="link" class="legenda3" id="legenda_link" autocomplete="off">Link boadica</label>
-                        <input type="text" id="link" class="caixa_texto3 radius" placeholder="Link específico do produto">
+                        <label for="link" class="legenda3 hidden" id="legenda_link" autocomplete="off">Link boadica</label>
+                        <input type="text" id="link" class="caixa_texto3 radius hidden" placeholder="Link específico do produto">
 
-                        <label for="valor2" class="legenda3" id="legenda_valor2" autocomplete="off">Valor</label>
+                        <label for="valor2" class="legenda3" id="legenda_valor2" autocomplete="off">Valor base</label>
                         <input type="text" id="valor2" class="caixa_texto3 radius" placeholder="Apenas se não possuir link">
 
                         <label for="custo" class="legenda3" id="legenda_custo" autocomplete="off">Preço de custo</label>
