@@ -3,6 +3,7 @@ class FormController {
         let $ = document.querySelector.bind(document);
 
         this._clientes = [];
+        this._produtos = [];
 
         this._inputNome = $('#nome');
         this._inputTel = $('#telefone');
@@ -26,7 +27,8 @@ class FormController {
         
         this._divTipo = document.getElementById('tipos');
         
-        this._listaDesenhador = new DesenhaPesquisa($('#divPesquisa'))
+        this._listaDesenhador = new DesenhaPesquisa($('#divPesquisa'));
+        this._listaDesenhador2 = new DesenhaPesquisa($('#divPesquisa2'));
         
 
     }
@@ -56,7 +58,7 @@ class FormController {
             this._inputEquipTel.value = this._clientes[this._clientes.length -1].telefone
             this._inputEquipId.value = this._clientes[this._clientes.length -1].id
             
-            // só vai dar pra fazer alguma coisa com esses valores aqui dentro dessa merda de promisse.                                                                    
+            // só vai dar pra fazer alguma coisa com esses valores dentro dessa merda de promisse.                                                                    
         })        
     }
 
@@ -120,21 +122,21 @@ class FormController {
     pesquisar(){       
         var awaitDatas = this.getDataCliente()
         awaitDatas.then(datas => {
-
             let listaNomes = []            
             datas.forEach(data => {
-                this._clientes.push(data);
+                this._clientes.push(data); //ma q porra eh essa?
                 listaNomes.push(data.nome);                
             })
             
             this._listaDesenhador.formato(this._clientes)
             this._listaDesenhador.update(this._clientes)
+
             
             var inputKeyWord = document.querySelector('#nome2');            
             var divNomes = document.querySelector('#divPesquisa');
             var listaNomes2 = document.querySelectorAll('.info_nome');             
             
-            inputKeyWord.addEventListener('input', function(){         
+            inputKeyWord.addEventListener('input', function(){
 
                 if(inputKeyWord.value.length > 1){ 
                     divNomes.classList.remove('hidden')
@@ -157,8 +159,54 @@ class FormController {
                     }
                 }
             })                                                                               
-        })       
+        })
     }
+
+    pesquisarProduto(){
+        var awaitDatas = this.getDataProduto()
+        awaitDatas.then(datas =>{
+            let listaProdutos = []
+            datas.forEach(data => {
+                this._produtos.push(data);
+                listaProdutos.push(data.nome);                
+            })
+            
+            this._listaDesenhador2.formato(this._produtos);
+            this._listaDesenhador2.update(this._produtos);
+            
+            var inputKeyWord = document.getElementById('nome3');
+            var divNomes = document.getElementById('divPesquisa2');
+            var listaProdutos2 = document.querySelectorAll('.info_produto');
+            
+
+            inputKeyWord.addEventListener('input', function(){
+                if(inputKeyWord.value.length > 1){
+                    divNomes.classList.remove('hidden');
+                    
+
+                    for(i=0; i< listaProdutos.length; i++){
+                        let item = listaProdutos2[i];
+                        let nome = item.textContent;
+                        
+
+                        var express = RegExp(inputKeyWord.value, 'i')
+                        if(express.test(nome)){
+                            item.classList.remove('hiddem');
+                        }else{
+                            item.classList.add('hidden');
+                        }
+                    }                   
+                }else{
+                    for(let i=0; i<listaProdutos.length; i++){
+                        let item = listaProdutos[i];
+                        item.classList.add('hidden');
+                    }
+                }
+            })
+        })
+
+    }
+
 
     selectPesquisa(nome, telefone, id){
             var divNomes = document.querySelector('#divPesquisa')
