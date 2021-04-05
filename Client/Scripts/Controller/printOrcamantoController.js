@@ -36,15 +36,19 @@ class PrintOrcamentoController{
                     //     console.log(clie)
                         
                     // });
-                    let listaFinal = []
+                    let listaFinal = []                    
                     let listaServ = []
                     let listaProd =[]
+                    
                     dataEquip.forEach(equip=>{
                         let id = equip.cliente_id
+                        
                         if(equip.os == os){
+                            
                             dataclie.forEach(clie=>{
+                                
                                 if(clie.id == equip.cliente_id){
-                                    console.log(equip)
+                                    
                                     listaFinal.push(
                                         clie.nome,
                                         clie.telefone,
@@ -57,6 +61,7 @@ class PrintOrcamentoController{
                         }   
                         
                     })
+                    
                     let counter = 0;
                     let counter2 = 0;
                     let counter3 = 0;

@@ -21,17 +21,17 @@ class SubwindowValoresContoller{
         const data = await response.json();
         return data;
     }
-    async getDataBoadica(id){
-        //paramentro id é o ps_id
-        //retorna item, item retorna: ender_tel, valor_medio, valores.
-        //ender_tel retorna uma lista de endereços e telefones
-        //cada item de ender_tel retorna endereço [0] e os telefones [1] pra cima.
-        //valor_medio retorna um valor em decimal 00.00
-        //valores retorna uma lista com todos os valores encontrados em ordem
-        const response = await fetch(`python/${id}`);
-        const data = await response.json();
-        return data;
-    }
+    // async getDataBoadica(id){
+    //     //paramentro id é o ps_id
+    //     //retorna item, item retorna: ender_tel, valor_medio, valores.
+    //     //ender_tel retorna uma lista de endereços e telefones
+    //     //cada item de ender_tel retorna endereço [0] e os telefones [1] pra cima.
+    //     //valor_medio retorna um valor em decimal 00.00
+    //     //valores retorna uma lista com todos os valores encontrados em ordem
+    //     const response = await fetch(`python/${id}`);
+    //     const data = await response.json();
+    //     return data;
+    // }
     async getDataEquipProduto(id){
         //paramatro id é a OS
         //retorna o equipproduto pesquisado com determinada OS/id
@@ -51,20 +51,20 @@ class SubwindowValoresContoller{
         awaitProduto.then(pd=>{  //isso aqui tá uma zona do kralho.
             
             
-            const options = {
-                method: 'GET'            
-            };
-            fetch(`/python/${pd[1].ps_id}`, options)
-            //pega o id do produto e passa como parametro de URL pro GET em app.js
+            // const options = {
+            //     method: 'GET'            
+            // };
+            // fetch(`/python/${pd[1].ps_id}`, options)
+            // //pega o id do produto e passa como parametro de URL pro GET em app.js
 
-            let awaitboadica = this.getDataBoadica(pd[1].ps_id);
+            // let awaitboadica = this.getDataBoadica(pd[1].ps_id);
             
-            awaitboadica.then(bd =>{                
-                //retorna os dados do link do boadica com base no parametro passado em produtos ali em cima,
-                //o parametro de URL entra na função runpy, vai para o python que pega a url do boadica referente ao produto
-                //e retorna todas as informações do site boadica em json. NEM EU TO ENTENDENDO MAIS ESSA PORRA DIREITO!
+            // awaitboadica.then(bd =>{                
+            //     //retorna os dados do link do boadica com base no parametro passado em produtos ali em cima,
+            //     //o parametro de URL entra na função runpy, vai para o python que pega a url do boadica referente ao produto
+            //     //e retorna todas as informações do site boadica em json. NEM EU TO ENTENDENDO MAIS ESSA PORRA DIREITO!
                 
-            })
+            // })
             
 
             awaitEquipProduto.then(ep=>{
@@ -227,14 +227,21 @@ class SubwindowValoresContoller{
     }
     atualizarPreco(os){
         let allValor = document.querySelectorAll('.valor');
+        
         let awaitEquipProduto = this.getDataEquipProduto(os)
         awaitEquipProduto.then(equipProduto=>{
             let listaAtualizada = []
+            console.log(equipProduto)
             for(let i=0; i<allValor.length; i++){
-                let valorAtual = allValor[i].value
-                let idAtual = equipProduto[i].pe_id
-                listaAtualizada.push([valorAtual, idAtual])
-                console.log(listaAtualizada[i])
+                if(equipProduto[i]){
+                    let valorAtual = allValor[i].value
+                    let idAtual = equipProduto[i].pe_id
+                    listaAtualizada.push([valorAtual, idAtual])
+                    console.log(listaAtualizada[i])
+                }else{
+                    alert('Não foram feitas nenhuma atualização de preço. Ultilize a função atualizar apenas para alterações de preço.');
+                }
+                
                 
                 const options = {
                     method: 'PUT',
@@ -244,6 +251,7 @@ class SubwindowValoresContoller{
                     body: JSON.stringify(listaAtualizada[i])
                 };
                 fetch('/equipproduto', options)
+                console.log('debug4')
     
             }
 
@@ -278,7 +286,7 @@ class SubwindowValoresContoller{
 
         this.divLista.classList.add('hidden')
 
-        let awaitBoadica = this.getDataBoadica(ps_id)
+        // let awaitBoadica = this.getDataBoadica(ps_id)
         let awaitProduto = this.getDataProduto()
         
 
@@ -305,17 +313,17 @@ class SubwindowValoresContoller{
             };
             fetch('/equipproduto', options)
 
-            awaitBoadica.then(bd=>{
+            // awaitBoadica.then(bd=>{
             
-                const options = {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(bd)
-                };
-                fetch('/atualizarapi3', options)
-            })
+            //     const options = {
+            //         method: 'PUT',
+            //         headers: {
+            //             'Content-Type': 'application/json'
+            //         },
+            //         body: JSON.stringify(bd)
+            //     };
+            //     fetch('/atualizarapi3', options)
+            // })
         }).then(()=>{
             let totalTotal = 0
             var express = RegExp('hidden', 'i')
@@ -343,20 +351,20 @@ class SubwindowValoresContoller{
         )
     }
 
-    showInfos(id){
+    // showInfos(id){
         
-        let _desenhaEnderBoadica = new DesenhaOrcamentoEnder(document.querySelector('#window_boadica'))
+    //     let _desenhaEnderBoadica = new DesenhaOrcamentoEnder(document.querySelector('#window_boadica'))
       
-        let awaitBoadica = this.getDataBoadica(id)
+    //     let awaitBoadica = this.getDataBoadica(id)
         
-        awaitBoadica.then(bd=>{
-            console.log("id")
-            _desenhaEnderBoadica.formato(bd)
-            _desenhaEnderBoadica.update(bd)
+    //     awaitBoadica.then(bd=>{
+    //         console.log("id")
+    //         _desenhaEnderBoadica.formato(bd)
+    //         _desenhaEnderBoadica.update(bd)
                                
-        })
+    //     })
 
-    }
+    // }
         
         
 }

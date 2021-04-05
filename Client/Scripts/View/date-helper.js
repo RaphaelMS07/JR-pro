@@ -19,21 +19,37 @@ class DateHelper {
     }
 
     static datastampParaData(datastamp) {
-        let dia = new Date(datastamp)  //parece q o *1 ajuda a converter em número, vai saber....
+        let dataAtual = new Date(datastamp)  //parece q o *1 ajuda a converter em número, vai saber....
+
         let mesTratado =''
-        if(dia.getMonth()+1<10){
-            let mes = dia.getMonth()+1
+        let diaTratado = ''
+
+        if(dataAtual.getMonth()+1<10){
+            let mes = dataAtual.getMonth()+1
             mesTratado = '0'+mes
         }else{
-            mesTratado = dia.getMonth()+1
+            mesTratado = dataAtual.getMonth()+1
         }
-        console.log(mesTratado)
-        return `${dia.getDate()}/${mesTratado}/${dia.getFullYear()}` // por algum motivo o mês funciona diferente do resto. como se fosse index de uma lista.
+        if(dataAtual.getDate() < 10){
+            let dia = dataAtual.getDate()
+            diaTratado = '0'+dia
+        }else{
+            diaTratado = dataAtual.getDate()
+        }
+      
+        
+        
+        return `${diaTratado}/${mesTratado}/${dataAtual.getFullYear()}` // por algum motivo o mês funciona diferente do resto. como se fosse index de uma lista.
         
     }
 
     static virgulaParaPonto(texto){        
         var resp = texto.replace(",", ".")
+        return resp
+    }
+
+    static pontoParaVirgula(texto){
+        var resp = texto.replace('.', ',')
         return resp
     }
 }

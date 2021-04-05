@@ -6,7 +6,41 @@ class DesenhaPrintOrcamento extends Desenhador{
     }
    
     formato(model, model2, medel3){
-        console.log("model2")
+        let valorTotalProdutos = parseFloat(model[6]);
+        let valorTotal = parseFloat(model[5]);
+        
+        let parcelaStatus = '';
+        let porcentagemDesconto = 0;
+        let produtoNulo = '';
+
+        if (valorTotalProdutos <= 0){
+            produtoNulo = 'hidden'
+        }else{
+            produtoNulo = ``
+        }
+
+        if(valorTotal <= 100){           
+            parcelaStatus = 'hidden';
+        }
+        if(100 < valorTotal && valorTotal <= 300){          
+            parcelaStatus = 3;
+            porcentagemDesconto = 10;
+        }
+        if(300 < valorTotal && valorTotal <= 1000){           
+            parcelaStatus = 6;
+            porcentagemDesconto = 15;      
+        }
+        else{           
+            parcelaStatus = 12;
+            porcentagemDesconto = 20;
+        }
+
+        let descontado = valorTotal * (1 - porcentagemDesconto/100);
+        let descontadoTratado = DateHelper.pontoParaVirgula(parseFloat(descontado).toFixed(2));
+        let parcela = valorTotal / parcelaStatus
+        let parcelaTratado = DateHelper.pontoParaVirgula(parseFloat(parcela).toFixed(2));
+        
+        
      
         return `    
         <div class="miolo">
@@ -18,13 +52,13 @@ class DesenhaPrintOrcamento extends Desenhador{
                 <a class="campo">Data de orçamento: </a><a>${DateHelper.datastampParaData(new Date().getTime())}</a>      
             </section>
             <section class="sobre_orcamento">
-                <div class="diagnostico setor1">
+                <div class="setor1">
                     <h3 class="subtitulo">${model[3]}</h3>
                     
                     <h3 class="subtitulo">Diagnóstico: </h3>
-                    <p>${model[4]}</p>
+                    <p class="diagnostico">${model[4]}</p>
                 </div>
-                <div class="pecas setor2">
+                <div class="pecas setor2 ${produtoNulo}">
                     <h3 class="subtitulo">Peças:</h3>                   
                         <table>
                             <tbody>
@@ -45,7 +79,7 @@ class DesenhaPrintOrcamento extends Desenhador{
                             </tbody>
                         </table>                                       
                 </div>
-                <div class ="servicos setor2">
+                <div class ="servicos setor2 ">
                     <h3 class="subtitulo">Serviços:</h3>
                         <table>
                             <tbody>
@@ -66,19 +100,19 @@ class DesenhaPrintOrcamento extends Desenhador{
                             </tbody>
                         </table>
                 </div>                    
-                <div class="total setor2">
-                    <a>Valor Total: </a><a>${model[5]} </a>
-                    <p class= "textoPequeno">Em até ${"VARIÁVEL"}x sem juros no cartão</p>
+                <div class="total setor2 ${parcelaStatus}">
+                    <p class="subtitulo ${parcelaStatus}">Valor total: </a><a>${model[5]} </p>
+                    <p class= "textoPequeno ${parcelaStatus}">Em até ${parcelaStatus}x de ${parcelaTratado} sem juros no cartão</p>
                 </div>
                 <div class="totalDesconto setor2">                    
-                    <p>Valor Total: </a><a>${model[5]} </p>
-                    <p class= "textoPequeno">Com desconto de ${"VARIÁVEL"} à vista no dinheiro ou por pix</p>
+                    <p class="subtitulo">Valor à vista: </a><a>${descontadoTratado} </p>
+                    <p class= "textoPequeno ${parcelaStatus}">Com desconto de ${porcentagemDesconto}% à vista no dinheiro ou por transferência</p>
                     
                 </div>
                
                 <div class="comunicado setor2"> 
                     <p>Prazo de entrega até 3 dias úteis apartir da data de aprovação do serviço.</p>
-                    <br>                    
+                                        
                     <p>Todas as peças e serviços tem garantia de 3 meses apartir da data de entrega. Valores de orçamentos são válidos por uma semana e poderão ser recalculados caso o período expire. </p>
                 </div>
             </section>

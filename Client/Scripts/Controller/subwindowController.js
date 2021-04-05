@@ -21,16 +21,19 @@ class SubWindowController {
         return data;
     }
     async getDataEquip() {
+        console.log(`debug5`)
         const response = await fetch('/api2');
-        const data = await response.json();            
+        console.log(`debug6`)
+        const data = await response.json(); 
+        console.log(`debug7`)           
         return data;
     }
     
-    async getDataBoadica(id){
-        const response = await fetch(`/python/${id}`);
-        const data = await response.json();
-        return data;
-    }
+    // async getDataBoadica(id){ isso pode ter sido acausa do fail to fetch
+    //     const response = await fetch(`/python/${id}`);
+    //     const data = await response.json();
+    //     return data;
+    // }
     async getDataProdutos(){
         const response = await fetch('api3');
         const data = await response.json();
