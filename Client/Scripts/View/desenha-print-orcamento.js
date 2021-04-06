@@ -20,34 +20,32 @@ class DesenhaPrintOrcamento extends Desenhador{
             produtoNulo = ``
         }
 
-        if(valorTotal <= 100){           
+        if(valorTotal <= 110){           
             parcelaStatus = 'hidden';
         }
-        if(100 < valorTotal && valorTotal <= 300){          
+        if(110 < valorTotal && valorTotal <= 330){          
             parcelaStatus = 3;
             porcentagemDesconto = 10;
         }
-        if(300 < valorTotal && valorTotal <= 1000){           
+        if(330 < valorTotal && valorTotal <= 1100){           
             parcelaStatus = 6;
             porcentagemDesconto = 15;      
         }
-        else{           
+        if(valorTotal > 1100){           
             parcelaStatus = 12;
             porcentagemDesconto = 20;
         }
 
+        console.log(parcelaStatus)
 
-        let adicionado = valorTotal * (1 + porcentagemDesconto/100);
-        let adicionadoRedondo = adicionado - (adicionado % 5);
+        let descontado = valorTotal * (1 - porcentagemDesconto/100);
         
-        let adicionadoTratado = DateHelper.pontoParaVirgula(parseFloat(adicionadoRedondo).toFixed(2));
-        let parcela = adicionado / parcelaStatus;
+        
+        let descontadoTratado = DateHelper.pontoParaVirgula(parseFloat(descontado).toFixed(2));
+        let parcela = valorTotal / parcelaStatus;
         let parcelaTratado = DateHelper.pontoParaVirgula(parseFloat(parcela).toFixed(2));
-
-        let diferencaDePreco = adicionadoRedondo - model[5];
-        let valorDistribuido = parseInt(diferencaDePreco/numeroDeServiços);             
-        console.log(valorDistribuido);
-
+        
+        
         return `    
         <div class="miolo">
             <section class="sobre_cliente">
@@ -94,24 +92,24 @@ class DesenhaPrintOrcamento extends Desenhador{
                                     <tr>
                                         <td class="descricao">${n[0]}</td>
                                         <td class="rs">R$</td>
-                                        <td class="valores">${parseFloat(n[1]) + valorDistribuido},00</td>
+                                        <td class="valores">${n[1]}</td>
                                     </tr>
                                     `
                                 ).join('')}
                                     <tr>
                                         <td class="descricao_total">Total: </td>
                                         <td class="rs">R$</td>
-                                        <td class="valores">${parseFloat(model[7]) + valorDistribuido*2},00</td>
+                                        <td class="valores">${model[7]}</td>
                                     </tr>                                                        
                             </tbody>
                         </table>
                 </div>                    
                 <div class="total setor2 ${parcelaStatus}">
-                    <p class="subtitulo ${parcelaStatus}">Valor total: </a><a>${adicionadoTratado} </p>
+                    <p class="subtitulo ${parcelaStatus}">Valor total: </a><a>${model[5]} </p>
                     <p class= "textoPequeno ${parcelaStatus}">Em até ${parcelaStatus}x de ${parcelaTratado} sem juros no cartão</p>
                 </div>
                 <div class="totalDesconto setor2">                    
-                    <p class="subtitulo">Valor à vista: </a><a>${model[5]} </p>
+                    <p class="subtitulo">Valor à vista: </a><a>${descontadoTratado} </p>
                     <p class= "textoPequeno ${parcelaStatus}">Com desconto de ${porcentagemDesconto}% à vista no dinheiro ou por transferência</p>
                     
                 </div>

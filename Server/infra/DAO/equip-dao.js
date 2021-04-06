@@ -84,5 +84,20 @@ class EquipDAO{
                 })
         })
     }
+    
+    delete(equipamento){
+        console.log(equipamento, 'dentro de delete equip')
+
+        return new promisse((resolve, reject) =>{
+            this._db.get(`DELETE FROM equipamentos`,[],
+            (erro, result)=> {
+                if(erro){
+                    return reject("Não foi possível excluir a porra toda")
+                }
+                console.log('A porra toda foi excluída!')
+                return resolve(result);
+            })
+        })
+    }
 }
 module.exports = EquipDAO;

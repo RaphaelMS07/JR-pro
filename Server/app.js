@@ -8,7 +8,7 @@ const equipDAO = require('./infra/DAO/equip-dao')
 const produtoDAO = require('./infra/DAO/produto-dao')
 const tempDataDAO = require('./infra/DAO/tempData-dao');
 const equipProdutoDAO = require('./infra/DAO/equipProduto-dao')
-const { request } = require('express');
+const { request, response } = require('express');
 
 
 
@@ -93,6 +93,12 @@ app.get('/api2', (request, response) =>{
     equipDao.getAll().then(resp => {        
         response.json(resp)
     }).catch(erro => console.log(erro))      
+})
+
+app.delete('/api2', (request, response) =>{
+    equipDao = new equipDAO(dataStore);
+    equipDao.delete(request.body).then(()=> response.status(200).end())
+                                 .catch(erro=> console.log('deu ruim ao deletar todos os equipamentos', erro))
 })
 
 app.post('/equipproduto', (request, response)=>{ //isso aqui é sobre produtos atrelados a equipamentos.

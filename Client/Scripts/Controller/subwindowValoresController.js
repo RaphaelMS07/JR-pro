@@ -180,9 +180,24 @@ class SubwindowValoresContoller{
             },
             body: JSON.stringify(dado)
         };
-        fetch('/equipproduto', options)
+        fetch('/api2', options)
         
     }
+
+    nukeForProdutos(pe_id){
+        let dado = {
+            "pe_id": pe_id
+        }
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dado)
+        };
+        fetch('/')
+    }
+
     pesquisar(inputID){
         let _desenhaPesquisa = new DesenhaPesquisa(document.querySelector('#dppesquisar'));
         
@@ -229,15 +244,18 @@ class SubwindowValoresContoller{
         let allValor = document.querySelectorAll('.valor');
         
         let awaitEquipProduto = this.getDataEquipProduto(os)
+
+        let valorTotal = 0;
         awaitEquipProduto.then(equipProduto=>{
             let listaAtualizada = []
-            console.log(equipProduto)
+            
             for(let i=0; i<allValor.length; i++){
                 if(equipProduto[i]){
                     let valorAtual = allValor[i].value
                     let idAtual = equipProduto[i].pe_id
+                    valorTotal += parseFloat(allValor[i].value);
                     listaAtualizada.push([valorAtual, idAtual])
-                    console.log(listaAtualizada[i])
+                    
                 }else{
                     alert('Não foram feitas nenhuma atualização de preço. Ultilize a função atualizar apenas para alterações de preço.');
                 }
@@ -251,9 +269,28 @@ class SubwindowValoresContoller{
                     body: JSON.stringify(listaAtualizada[i])
                 };
                 fetch('/equipproduto', options)
-                console.log('debug4')
+                
     
             }
+            let porcentagem = 0;
+            let aSerAdicionado =0;
+            
+            if(valorTotal > 100 && valorTotal <= 300){
+                let valorAdicionado = valorTotal + valorTotal*(10/100)
+                aSerAdicionado = valorAdicionado - valorTotal;
+
+            }
+            if(valorTotal > 300 && valorTotal <= 1000){
+                let valorAdicionado = valorTotal + valorTotal*(15/100)
+                aSerAdicionado = valorAdicionado - valorTotal;
+
+            }
+            if(valorTotal > 1000){
+                let valorAdicionado = valorTotal + valorTotal*(25/100)
+                aSerAdicionado = valorAdicionado - valorTotal;
+            }
+            
+            alert(`Necessário adicionar mais ${parseInt(aSerAdicionado)},00 de tributo para o gnomo. Se já adicionou, ignore essa porra!`);
 
         })
         
