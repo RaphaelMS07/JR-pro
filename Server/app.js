@@ -95,11 +95,6 @@ app.get('/api2', (request, response) =>{
     }).catch(erro => console.log(erro))      
 })
 
-app.delete('/api2', (request, response) =>{
-    equipDao = new equipDAO(dataStore);
-    equipDao.delete(request.body).then(()=> response.status(200).end())
-                                 .catch(erro=> console.log('deu ruim ao deletar todos os equipamentos', erro))
-})
 
 app.post('/equipproduto', (request, response)=>{ //isso aqui é sobre produtos atrelados a equipamentos.
     equipProdutoDao = new equipProdutoDAO(dataStore);
@@ -142,6 +137,14 @@ app.get('/api3', (request, response)=>{
         response.json(resp)
     }).catch(erro => console.log(erro, 'deu ruim no get de api3'))
 })
+
+app.delete('/api3', (request, response) =>{
+    console.log('entrou no delete de produto')
+    produtoDao = new produtoDAO(dataStore);
+    produtoDao.delete(request.body).then(()=> response.status(200).end())
+                                 .catch(erro=> console.log('deu ruim ao deletar todos os equipamentos', erro))
+})
+
 
 
 //sobre atualzações

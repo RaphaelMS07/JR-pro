@@ -180,22 +180,25 @@ class SubwindowValoresContoller{
             },
             body: JSON.stringify(dado)
         };
-        fetch('/api2', options)
+        fetch('/equipproduto', options)
         
     }
 
-    nukeForProdutos(pe_id){
-        let dado = {
-            "pe_id": pe_id
+    nukeForProdutos(quantidadeTotal){
+        for(let i=0; i<= quantidadeTotal; i++){
+            let dado = {
+                "ps_id": i
+            }
+            const options = {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dado)
+            };
+            fetch('/api3', options)
         }
-        const options = {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dado)
-        };
-        fetch('/')
+        
     }
 
     pesquisar(inputID){
@@ -246,6 +249,7 @@ class SubwindowValoresContoller{
         let awaitEquipProduto = this.getDataEquipProduto(os)
 
         let valorTotal = 0;
+        let counterValorAlterado = 0;
         awaitEquipProduto.then(equipProduto=>{
             let listaAtualizada = []
             
@@ -253,40 +257,49 @@ class SubwindowValoresContoller{
                 if(equipProduto[i]){
                     let valorAtual = allValor[i].value
                     let idAtual = equipProduto[i].pe_id
+                    
                     valorTotal += parseFloat(allValor[i].value);
-                    listaAtualizada.push([valorAtual, idAtual])
+                    if(equipProduto[i].valor != allValor[i].value){ // dessa forma so vai atualizar o que foi alterado.
+                        listaAtualizada.push([valorAtual. idAtual])
+                        console.log(equipProduto[i].valor, allValor[i].value)
+                    }
+                    
+                    
                     
                 }else{
                     alert('Não foram feitas nenhuma atualização de preço. Ultilize a função atualizar apenas para alterações de preço.');
                 }
                 
-                
-                const options = {
+                if(listaAtualizada.length > 0){
+                    const options = {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(listaAtualizada[i])
-                };
-                fetch('/equipproduto', options)
-                
+                    };
+                    fetch('/equipproduto', options)
+                    
+                }            
     
             }
+
+            
             let porcentagem = 0;
             let aSerAdicionado =0;
             
             if(valorTotal > 100 && valorTotal <= 300){
-                let valorAdicionado = valorTotal + valorTotal*(10/100)
+                let valorAdicionado = valorTotal + valorTotal*(11/100) // referente ao inverso de tirar 10%
                 aSerAdicionado = valorAdicionado - valorTotal;
 
             }
             if(valorTotal > 300 && valorTotal <= 1000){
-                let valorAdicionado = valorTotal + valorTotal*(15/100)
+                let valorAdicionado = valorTotal + valorTotal*(17.5/100) // referente ao inverso de tirar 15%
                 aSerAdicionado = valorAdicionado - valorTotal;
 
             }
             if(valorTotal > 1000){
-                let valorAdicionado = valorTotal + valorTotal*(25/100)
+                let valorAdicionado = valorTotal + valorTotal*(25/100) // referente ao inverso de tirar 20%
                 aSerAdicionado = valorAdicionado - valorTotal;
             }
             

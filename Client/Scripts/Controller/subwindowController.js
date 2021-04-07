@@ -20,13 +20,10 @@ class SubWindowController {
         const data = await response.json();            
         return data;
     }
-    async getDataEquip() {
-        console.log(`debug5`)
-        const response = await fetch('/api2');
-        console.log(`debug6`)
-        const data = await response.json(); 
-        console.log(`debug7`)           
-        return data;
+    async getDataEquip() {        
+        const response = await fetch('/api2');        
+        const data = await response.json();                
+        return data
     }
     
     // async getDataBoadica(id){ isso pode ter sido acausa do fail to fetch

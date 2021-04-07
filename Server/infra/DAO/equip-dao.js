@@ -85,11 +85,13 @@ class EquipDAO{
         })
     }
     
-    delete(equipamento){
+    delete(equipamento){ //isso daqui esta errado. depois precisa adaptar para equipamentos. quando eu fiz isso estava pensando em produtos.
         console.log(equipamento, 'dentro de delete equip')
 
         return new promisse((resolve, reject) =>{
-            this._db.get(`DELETE FROM equipamentos`,[],
+            this._db.get(`DELETE FROM equipamentos WHERE pe_id = ?`,[
+                equipamento
+            ],
             (erro, result)=> {
                 if(erro){
                     return reject("Não foi possível excluir a porra toda")

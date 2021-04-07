@@ -75,6 +75,22 @@ class ProdutoDAO{
                 })
         })
     }
+    delete(produto){
+        console.log(produto.ps_id, 'dentro de delete produto')
+
+        return new Promise((resolve, reject) =>{
+            this._db.get(`DELETE FROM produtos_servicos WHERE ps_id = ?`,[
+                produto.ps_id
+            ],
+            (erro, result)=> {
+                if(erro){
+                    return reject("Não foi possível excluir a porra toda")
+                }
+                console.log('A porra toda foi excluída!')
+                return resolve(result);
+            })
+        })
+    }
     boadicaUpdate(produto){
         console.log(produto.ps_id, produto.valor_medio, 'dentro de boadicaupdate produto')
         
