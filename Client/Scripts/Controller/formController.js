@@ -133,21 +133,21 @@ class FormController {
 
             
             var inputKeyWord = document.querySelector('#nome2');            
-            var divNomes = document.querySelector('#divPesquisa');
-            var listaNomes2 = document.querySelectorAll('.info_nome');             
+            var divNomes = document.querySelector('#divPesquisa'); 
+            var listaNomes2 = document.querySelectorAll('.info_nome');          
             
             inputKeyWord.addEventListener('input', function(){
 
                 if(inputKeyWord.value.length > 1){ 
                     divNomes.classList.remove('hidden')
-                                        
+                     
                     for(i=0; i < listaNomes.length; i++){
                         let item = listaNomes2[i];
                         let nome = item.textContent;           
 
-                        var express = RegExp(inputKeyWord.value, 'i')
+                        var express = RegExp(inputKeyWord.value, 'i') // acho que esse 'i' tem a ver com case sensitive
                         if(express.test(nome)){
-                            item.classList.remove('hidden')                      
+                            item.classList.remove('hidden')                     
                         }else{
                             item.classList.add('hidden')
                         }

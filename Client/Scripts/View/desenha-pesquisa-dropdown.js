@@ -22,11 +22,11 @@ class DesenhaPesquisa extends Desenhador{
                     
 
                 
-            }else(
+            }if(item.custo){
                 listaParagrafos.push(
                     `<p id ="${item.ps_id}" class="item_pesquisa info_produto" onclick='formController.selectPesquisa("${item.nome}", "${item.valor}", "${item.ps_id}", "${item.custo}", "${item.tipo}")'>${item.nome}</p>'`
                 )
-            )
+            }
             
                 
         }
