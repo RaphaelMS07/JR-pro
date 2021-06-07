@@ -128,8 +128,8 @@ class FormController {
                 listaNomes.push(data.nome);                
             })
             
-            this._listaDesenhador2.formato(this._clientes)
-            this._listaDesenhador2.update(this._clientes)
+            this._listaDesenhador.formato(this._clientes)
+            this._listaDesenhador.update(this._clientes)
 
             
             var inputKeyWord = document.querySelector('#nome2');            
@@ -220,6 +220,15 @@ class FormController {
             divNomes.classList.add('hidden')
               
     }
+    selectPesquisa2(nome, valor){
+        var divNomes = document.querySelector('#divPesquisa2')
+        
+        this._inputProdudoNome.value = nome 
+        this._inputValor.value = valor       
+        
+        divNomes.classList.add('hidden')
+          
+}
 
     async getDataCliente() {
         const response = await fetch('/api');
