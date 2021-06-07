@@ -128,8 +128,8 @@ class FormController {
                 listaNomes.push(data.nome);                
             })
             
-            this._listaDesenhador.formato(this._clientes)
-            this._listaDesenhador.update(this._clientes)
+            this._listaDesenhador2.formato(this._clientes)
+            this._listaDesenhador2.update(this._clientes)
 
             
             var inputKeyWord = document.querySelector('#nome2');            
@@ -187,18 +187,20 @@ class FormController {
                     for(i=0; i< listaProdutos.length; i++){
                         let item = listaProdutos2[i];
                         let nome = item.textContent;
-                        
 
+                        
+                        
                         var express = RegExp(inputKeyWord.value, 'i')
                         if(express.test(nome)){
-                            item.classList.remove('hiddem');
+                            item.classList.remove('hidden');
+                            
                         }else{
                             item.classList.add('hidden');
                         }
                     }                   
                 }else{
                     for(let i=0; i<listaProdutos.length; i++){
-                        let item = listaProdutos[i];
+                        let item = listaProdutos2[i];
                         item.classList.add('hidden');
                     }
                 }

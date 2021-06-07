@@ -10,23 +10,24 @@ class DesenhaPesquisa extends Desenhador{
             if(item.telefone){
                 listaParagrafos.push(               
                                 
-                    `<p id="${item.id}" class="item_pesquisa info_nome" onclick='formController.selectPesquisa("${item.nome}", "${item.telefone}", "${item.id}")'>${item.nome}</p>`
+                    `<p id="${item.id}" class="item_pesquisa info_nome hidden" onclick='formController.selectPesquisa("${item.nome}", "${item.telefone}", "${item.id}")'>${item.nome}</p>`
                 )
                     
 
             }
             if(item.ps_id){
                 listaParagrafos.push(
-                    `<p id="${item.ps_id}" class="item_pesquisa info_nome" onclick='subwindowValores.selectPesquisa("${item.nome}", "${item.boadica}", "${item.ps_id}", "${item.valor}")'>${item.nome}</p>`
+                    `<p id="${item.ps_id}" class="item_pesquisa info_produto hidden" onclick='subwindowValores.selectPesquisa("${item.nome}", "${item.boadica}", "${item.ps_id}", "${item.valor}")'>${item.nome}</p>`
                 )
                     
 
                 
-            }if(item.custo){
-                listaParagrafos.push(
-                    `<p id ="${item.ps_id}" class="item_pesquisa info_produto" onclick='formController.selectPesquisa("${item.nome}", "${item.valor}", "${item.ps_id}", "${item.custo}", "${item.tipo}")'>${item.nome}</p>'`
-                )
             }
+            // if(item.custo){
+            //     listaParagrafos.push(
+            //         `<p id ="${item.ps_id}" class="item_pesquisa info_produto" onclick='formController.selectPesquisa("${item.nome}", "${item.valor}", "${item.ps_id}", "${item.custo}", "${item.tipo}")'>${item.nome}</p>'`
+            //     )
+            // }
             
                 
         }
