@@ -17,7 +17,8 @@ class DesenhaPesquisa extends Desenhador{
             }
             if(item.ps_id){
                 listaParagrafos.push(
-                    `<p id="${item.ps_id}" class="item_pesquisa info_produto hidden" onclick='formController.selectPesquisa2("${item.nome}", "${item.valor}")'>${item.nome}</p>`
+                    `<p id="${item.ps_id}" class="item_pesquisa info_produto hidden" onclick='subwindowValores.selectPesquisa("${item.nome}", "${item.boadica}", "${item.ps_id}", "${item.valor}")'>${item.nome}</p>`
+
                 )
                     
 

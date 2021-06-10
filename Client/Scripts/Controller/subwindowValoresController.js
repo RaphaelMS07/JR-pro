@@ -257,11 +257,12 @@ class SubwindowValoresContoller{
                 if(equipProduto[i]){
                     let valorAtual = allValor[i].value
                     let idAtual = equipProduto[i].pe_id
+                    console.log(valorAtual)
                     
                     valorTotal += parseFloat(allValor[i].value);
                     if(equipProduto[i].valor != allValor[i].value){ // dessa forma so vai atualizar o que foi alterado.
-                        listaAtualizada.push([valorAtual. idAtual])
-                        console.log(equipProduto[i].valor, allValor[i].value)
+                        listaAtualizada.push([valorAtual, idAtual])
+                        console.log(equipProduto[i].valor, valorAtual)
                     }
                     
                     
