@@ -47,8 +47,8 @@ class ProdutoDAO{
             })
         })
     }
-    update(produto){
-        console.log(produto.ps_id, produto.valor_medio, 'dentro de update produto')
+    update(ps_id, novoValor){
+        console.log(ps_id, novoValor, 'dentro de update produto')
         
         return new Promise((resolve, reject) =>{
             this._db.run(`

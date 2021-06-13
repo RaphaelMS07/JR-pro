@@ -128,14 +128,17 @@
         <script src="Scripts/Model/formulario-completo.js"></script>
         <script src="Scripts/Controller/formController.js"></script>
         <script src="Scripts/Controller/listaController.js"></script>
+        <!-- <script src='Scripts/Controller/subwindowValoresController.js'></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
         <script>
             $('#telefone').mask('(99)99999-9999')
             var formController = new FormController();
-            formController.pesquisar()
-            
+            formController.pesquisar()            
             formController.pesquisarProduto()
+
+            // var subwindowValores = new SubwindowValoresContoller();
+            
                  
         </script>
     </body>

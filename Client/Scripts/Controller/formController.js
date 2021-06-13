@@ -117,9 +117,41 @@ class FormController {
         
         
     }
+
+    atualizarProduto(event){
+        event.preventDefault();
+        let awaitProduto = this.getDataProduto()
+        let novosDados = this._montarFormProduto().data
+        
+        awaitProduto.then(dados=>{
+            let counter = 0;
+            for(let i=0; i<=dados.length-1; i++){
+                let item_nome = dados[i].nome;
+                
+                if(item_nome == novosDados.nome){
+                    counter++;
+                     const options = {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(novosDados)
+                    };
+                    fetch('/atualizarapi3', options)
+                }
+                               
+            }
+            
+                
+        
+            
+            
+           
+        })
+    }
     
 
-    pesquisar(){       
+    pesquisar(){
         var awaitDatas = this.getDataCliente()
         awaitDatas.then(datas => {
             let listaNomes = []            
@@ -220,6 +252,7 @@ class FormController {
             divNomes.classList.add('hidden')
               
     }
+    
     selectPesquisa2(nome, valor){
         var divNomes = document.querySelector('#divPesquisa2')
         
