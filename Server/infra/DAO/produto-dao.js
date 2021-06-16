@@ -47,8 +47,8 @@ class ProdutoDAO{
             })
         })
     }
-    update(ps_id, novoValor){
-        console.log(ps_id, novoValor, 'dentro de update produto')
+    update(produto){
+        console.log(produto, 'dentro de update produto')
         
         return new Promise((resolve, reject) =>{
             this._db.run(`
@@ -58,12 +58,11 @@ class ProdutoDAO{
                 estoque = ?,
                 boadica = ?                
                 WHERE ps_id = ?`,
-                [
-                    
+                [                    
                     produto.nome,
                     produto.valor_medio,
                     produto.estoque,
-                    produto.boadica,                    
+                    produto.boadica,       
                     produto.ps_id
                 ],               
                 (erro)=>{

@@ -163,9 +163,10 @@ app.put('/atualizar', (request, response) =>{
 
 app.put('/atualizarapi3', (request, response)=>{ //se colocar a mesma rota do api3, vai ficar lento pra kralho!
     let produtoDao = new produtoDAO(dataStore);
+    
     produtoDao.update(request.body) //aqui antigamente era o boadicaupdate, funcionava para atualizar os precos do site em tempo real.
               .then(()=> response.status(200).end)
-              .catch(erro=> console.log('deu ruim no put /atualizarapi3', erro))
+              .catch(erro=> console.log('deu ruim no put /atualizarapi3', erro, request))
 })
 app.put('/equipproduto', (request, response)=>{ //se colocar a mesma rota do api3, vai ficar lento pra kralho!
     let equipProdutoDao = new equipProdutoDAO(dataStore);

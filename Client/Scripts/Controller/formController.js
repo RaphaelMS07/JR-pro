@@ -24,6 +24,7 @@ class FormController {
         this._inputCusto = $('#custo');
         this._inputFornecedor = $('#fornecedor');
         this._inputEstoque = $('#estoque');
+        this._inputPs_id = $('#ps_id');
         
         this._divTipo = document.getElementById('tipos');
         
@@ -93,6 +94,8 @@ class FormController {
         let inputTipoProduto = document.getElementById('produto_radio');
         let inputTipoServico = document.getElementById('servico_radio');
 
+        
+
         if(inputTipoProduto.checked){
             this._divTipo.value = inputTipoProduto.value;
             
@@ -101,53 +104,45 @@ class FormController {
             this._divTipo.value = inputTipoServico.value;
             
         }
-        
-        const dados = this._montarFormProduto().data
-        
 
-        const options = {
-            method: 'POST',
+        if(this._inputPs_id.value != ""){
+            console.log("foda-se", this._inputPs_id.value)
+            this.atualizarProduto();
+        }else{
+
+            const dados = this._montarFormProduto().data
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            };
+
+            fetch('/api3', options)
+            this._limpaform3();
+            
+        }
+        
+   
+        
+         
+    }
+    //to do
+    atualizarProduto(ps_id, nome, valor, custo="", fornecedor="", estoque=""){
+        
+        let novosDados = [ps_id, nome, valor, custo, fornecedor, estoque]
+      
+        counter++;
+            const options = {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(dados)
+            body: JSON.stringify(novosDados)
         };
-        fetch('/api3', options)
-        this._limpaform3();
-        
-        
-    }
-
-    atualizarProduto(event){
-        event.preventDefault();
-        let awaitProduto = this.getDataProduto()
-        let novosDados = this._montarFormProduto().data
-        
-        awaitProduto.then(dados=>{
-            let counter = 0;
-            for(let i=0; i<=dados.length-1; i++){
-                let item_nome = dados[i].nome;
-                
-                if(item_nome == novosDados.nome){
-                    counter++;
-                     const options = {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(novosDados)
-                    };
-                    fetch('/atualizarapi3', options)
-                }
-                               
-            }
-            
-                
-        
-            
-            
-           
-        })
+        fetch('/atualizarapi3', options)
+    
     }
     
 
@@ -238,26 +233,29 @@ class FormController {
                 }
             })
         })
-
     }
 
 
-    selectPesquisa(nome, telefone, id){
+    selectPesquisa(nome, telefone, fornecedor, estoque, id){
             var divNomes = document.querySelector('#divPesquisa')
             
             this._inputEquipNome.value = nome 
             this._inputEquipTel.value = telefone
-            this._inputEquipId.value = id 
+            this._inputEquipId.value = id
+            this._inputFornecedor.value = fornecedor
+            this._inputEstoque.value = estoque
             
             divNomes.classList.add('hidden')
               
     }
     
-    selectPesquisa2(nome, valor){
+    selectPesquisa2(nome, valor, custo, ps_id){
         var divNomes = document.querySelector('#divPesquisa2')
         
         this._inputProdudoNome.value = nome 
-        this._inputValor.value = valor       
+        this._inputValor.value = valor
+        this._inputCusto.value = custo
+        this._inputPs_id.value = ps_id
         
         divNomes.classList.add('hidden')
           
