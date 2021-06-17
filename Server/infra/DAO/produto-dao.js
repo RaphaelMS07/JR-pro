@@ -55,21 +55,25 @@ class ProdutoDAO{
                 UPDATE produtos_servicos SET                
                 nome = ?,
                 valor = ?,
+                custo = ?,
+                fornecedor = ?,
                 estoque = ?,
-                boadica = ?                
+                tipo = ?                               
                 WHERE ps_id = ?`,
                 [                    
-                    produto.nome,
-                    produto.valor_medio,
-                    produto.estoque,
-                    produto.boadica,       
-                    produto.ps_id
+                    produto[1], //nome
+                    produto[2], //valor
+                    produto[3], //custo
+                    produto[4], //fornecedor       
+                    produto[5], //estoque
+                    produto[6], //tipo
+                    produto[0], //ps_id
                 ],               
                 (erro)=>{
                     if(erro){
                         return reject(erro.message)
                     }
-                    console.log('dado atualizado com sucesso.')
+                    console.log('dado de produto atualizado com sucesso.')
                     resolve();
                 })
         })
@@ -106,7 +110,7 @@ class ProdutoDAO{
                     if(erro){
                         return reject(erro.message)
                     }
-                    console.log('dado atualizado com sucesso.')
+                    console.log('dado boadica atualizado com sucesso.')
                     resolve();
                 })
         })

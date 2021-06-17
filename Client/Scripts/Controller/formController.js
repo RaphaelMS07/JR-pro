@@ -93,6 +93,7 @@ class FormController {
         
         let inputTipoProduto = document.getElementById('produto_radio');
         let inputTipoServico = document.getElementById('servico_radio');
+        const dados = this._montarFormProduto().data
 
         
 
@@ -104,13 +105,14 @@ class FormController {
             this._divTipo.value = inputTipoServico.value;
             
         }
-
-        if(this._inputPs_id.value != ""){
-            console.log("foda-se", this._inputPs_id.value)
-            this.atualizarProduto();
-        }else{
-
-            const dados = this._montarFormProduto().data
+        // to do. Verificar o bug que tira o tipe de entrada (produto, servico) quando o item eh atualizado
+        if(this._inputPs_id.value != "0"){
+            console.log('atualizado')
+            this.atualizarProduto(this._inputPs_id.value, dados.nome, dados.valor, dados.custo, dados.fornecedor, dados.estoque, dados.tipo);
+            
+        }else if(this._inputPs_id.value == "0"){
+            console.log('adicionado')
+            
             const options = {
                 method: 'POST',
                 headers: {
@@ -128,13 +130,12 @@ class FormController {
         
          
     }
-    //to do
+    
     atualizarProduto(ps_id, nome, valor, custo="", fornecedor="", estoque=""){
         
         let novosDados = [ps_id, nome, valor, custo, fornecedor, estoque]
-      
-        counter++;
-            const options = {
+
+        const options = {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -209,14 +210,11 @@ class FormController {
             inputKeyWord.addEventListener('input', function(){
                 if(inputKeyWord.value.length > 1){
                     divNomes.classList.remove('hidden');
-                    
 
                     for(i=0; i< listaProdutos.length; i++){
                         let item = listaProdutos2[i];
                         let nome = item.textContent;
 
-                        
-                        
                         var express = RegExp(inputKeyWord.value, 'i')
                         if(express.test(nome)){
                             item.classList.remove('hidden');
@@ -249,12 +247,18 @@ class FormController {
               
     }
     
-    selectPesquisa2(nome, valor, custo, ps_id){
+    selectPesquisa2(nome, valor, custo, fornecedor, estoque, ps_id){
         var divNomes = document.querySelector('#divPesquisa2')
+
+        let botaoCadastrar = document.querySelector('#submeter3').value;
+        botaoCadastrar = 'Atualizar';
+        console.log(botaoCadastrar)
         
         this._inputProdudoNome.value = nome 
         this._inputValor.value = valor
         this._inputCusto.value = custo
+        this._inputFornecedor.value = fornecedor
+        this._inputEstoque.value = estoque
         this._inputPs_id.value = ps_id
         
         divNomes.classList.add('hidden')
