@@ -63,10 +63,10 @@ class ProdutoDAO{
                 [                    
                     produto[1], //nome
                     produto[2], //valor
-                    produto[3], //custo
-                    produto[4], //fornecedor       
-                    produto[5], //estoque
-                    produto[6], //tipo
+                    produto[4], //custo
+                    produto[5], //fornecedor       
+                    produto[6], //estoque
+                    produto[3], //tipo
                     produto[0], //ps_id
                 ],               
                 (erro)=>{

@@ -182,24 +182,7 @@ class SubwindowValoresContoller{
         };
         fetch('/equipproduto', options)
         
-    }
-
-    nukeForProdutos(quantidadeTotal){
-        for(let i=0; i<= quantidadeTotal; i++){
-            let dado = {
-                "ps_id": i
-            }
-            const options = {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(dado)
-            };
-            fetch('/api3', options)
-        }
-        
-    }
+    }   
 
     pesquisar(inputID){
         let _desenhaPesquisa = new DesenhaPesquisa(document.querySelector('#dppesquisar'));

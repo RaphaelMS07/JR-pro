@@ -93,7 +93,7 @@ class FormController {
         
         let inputTipoProduto = document.getElementById('produto_radio');
         let inputTipoServico = document.getElementById('servico_radio');
-        const dados = this._montarFormProduto().data
+        
 
         
 
@@ -101,18 +101,17 @@ class FormController {
             this._divTipo.value = inputTipoProduto.value;
             
         }
-        if(inputTipoServico.checked){
+        else if(inputTipoServico.checked){
             this._divTipo.value = inputTipoServico.value;
             
         }
-        // to do. Verificar o bug que tira o tipe de entrada (produto, servico) quando o item eh atualizado
+        const dados = this._montarFormProduto().data
+        console.log(dados.tipo, this._divTipo.value);
         if(this._inputPs_id.value != "0"){
-            console.log('atualizado')
-            this.atualizarProduto(this._inputPs_id.value, dados.nome, dados.valor, dados.custo, dados.fornecedor, dados.estoque, dados.tipo);
+            this.atualizarProduto(this._inputPs_id.value, dados.nome, dados.valor, this._divTipo.value, dados.custo, dados.fornecedor, dados.estoque);
             
         }else if(this._inputPs_id.value == "0"){
-            console.log('adicionado')
-            
+
             const options = {
                 method: 'POST',
                 headers: {
@@ -125,15 +124,12 @@ class FormController {
             this._limpaform3();
             
         }
-        
-   
-        
          
     }
     
-    atualizarProduto(ps_id, nome, valor, custo="", fornecedor="", estoque=""){
+    atualizarProduto(ps_id, nome, valor, tipo, custo="", fornecedor="", estoque=""){
         
-        let novosDados = [ps_id, nome, valor, custo, fornecedor, estoque]
+        let novosDados = [ps_id, nome, valor, tipo, custo, fornecedor, estoque]
 
         const options = {
             method: 'PUT',
@@ -144,6 +140,23 @@ class FormController {
         };
         fetch('/atualizarapi3', options)
     
+    }
+
+    nukeForProdutos(quantidadeTotal){
+        for(let i=0; i<= quantidadeTotal; i++){
+            let dado = {
+                "ps_id": i
+            }
+            const options = {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dado)
+            };
+            fetch('/api3', options)
+        }
+        
     }
     
 
