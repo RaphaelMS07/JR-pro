@@ -83,13 +83,13 @@ class SubwindowValoresContoller{
     }
 
     goto(os){
-        let ip = "localhost"   //isso pode alterar de acordo com o ambiente. Tente fazer essa porra ficar mais visível, ou até mesmo alterável no forntend, fila daputa!
+        let ip = "192.168.0.101"   //isso pode alterar de acordo com o ambiente. Tente fazer essa porra ficar mais visível, ou até mesmo alterável no forntend, fila daputa!
         
         let newTab = window.open(`http://${ip}/printOrcamento.html?os=${os}`)
         
     }
     fechar(buttid){
-        console.log(buttid)
+       
         let janela = document.querySelector('#mini_window2');
         let janela2 = document.querySelector('#mini_window3');
         if(buttid == 1){
@@ -240,32 +240,30 @@ class SubwindowValoresContoller{
                 if(equipProduto[i]){
                     let valorAtual = allValor[i].value
                     let idAtual = equipProduto[i].pe_id
-                    console.log(valorAtual)
-                    
+                    console.log()
                     valorTotal += parseFloat(allValor[i].value);
                     if(equipProduto[i].valor != allValor[i].value){ // dessa forma so vai atualizar o que foi alterado.
                         listaAtualizada.push([valorAtual, idAtual])
-                        console.log(equipProduto[i].valor, valorAtual)
+                        
                     }
-                    
-                    
                     
                 }else{
                     alert('Não foram feitas nenhuma atualização de preço. Ultilize a função atualizar apenas para alterações de preço.');
                 }
-                
-                if(listaAtualizada.length > 0){
-                    const options = {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(listaAtualizada[i])
-                    };
-                    fetch('/equipproduto', options)
+                for(let j=0; j<listaAtualizada.length; j++){
                     
-                }            
+                    const options = {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(listaAtualizada[j])
+                        };
+                        fetch('/equipproduto', options)       
     
+                }
+                
+                    
             }
 
             
