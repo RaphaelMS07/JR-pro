@@ -134,9 +134,18 @@ h4{
     text-align: right;
     margin-left: 10px;
     
+    
+}
+.valores2{
+    
+    vertical-align: middle;
+    
 }
 .descricao_total{
     width: 8cm;
     display: inline-block;
     margin: 10px 5px 0px 5px;
+}
+.rs2{
+    vertical-align: middle;
 }

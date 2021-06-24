@@ -19,7 +19,7 @@
 .grid_form{    
     margin: 10px;
     position: relative;
-    left: 27%;
+    left: 50px;
     padding: 9px 0;
     background-color: rgb(0, 0, 0);
     width: 660px;
@@ -39,7 +39,7 @@
 .semitransform{
     margin: 10px;    
     position: relative;
-    left: 55%;
+    left: 50px;
     padding: 9px 0;
     background-color: rgb(22, 0, 12);
     width: 400px;
@@ -64,7 +64,7 @@
     margin: 10px;
     display: inline-flex;
     position: relative;
-    left: 94%;
+    left: 50px;
     padding: 7px 11px;
     background-color: rgb(0, 0, 0);
     width: 2%;

@@ -247,14 +247,14 @@ class FormController {
     }
 
 
-    selectPesquisa(nome, telefone, fornecedor, estoque, id){
+    selectPesquisa(nome, telefone, id){
             var divNomes = document.querySelector('#divPesquisa')
             
             this._inputEquipNome.value = nome 
             this._inputEquipTel.value = telefone
             this._inputEquipId.value = id
-            this._inputFornecedor.value = fornecedor
-            this._inputEstoque.value = estoque
+            // this._inputFornecedor.value = fornecedor
+            // this._inputEstoque.value = estoque
             
             divNomes.classList.add('hidden')
               

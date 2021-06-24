@@ -70,8 +70,8 @@ class DesenhaPrintOrcamento extends Desenhador{
                                     `
                                     <tr>
                                         <td class="descricao">${n[0]}</td>
-                                        <td class="rs">R$</td>
-                                        <td class="valores">${n[1]}</td>
+                                        <td class="rs rs2">R$</td>
+                                        <td class="valores valores2">${n[1]}</td>
                                     </tr>
                                     `
                                 ).join('')}
@@ -91,8 +91,8 @@ class DesenhaPrintOrcamento extends Desenhador{
                                     `
                                     <tr>
                                         <td class="descricao">${n[0]}</td>
-                                        <td class="rs">R$</td>
-                                        <td class="valores">${n[1]}</td>
+                                        <td class="rs rs2">R$</td>
+                                        <td class="valores valores2">${n[1]}</td>
                                     </tr>
                                     `
                                 ).join('')}
@@ -106,7 +106,7 @@ class DesenhaPrintOrcamento extends Desenhador{
                 </div>                    
                 <div class="total setor2 ${parcelaStatus}">
                     <p class="subtitulo ${parcelaStatus}">Valor total: </a><a>${model[5]} </p>
-                    <p class= "textoPequeno ${parcelaStatus}">Em até ${parcelaStatus}x de ${parcelaTratado} sem juros no cartão</p>
+                    <p class= "textoPequeno ${parcelaStatus}">Em até ${parcelaStatus}x de ${parcelaTratado} no cartão de crédito</p>
                 </div>
                 <div class="totalDesconto setor2">                    
                     <p class="subtitulo">Valor à vista: </a><a>${descontado} </p>

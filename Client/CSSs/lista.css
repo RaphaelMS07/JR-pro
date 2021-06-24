@@ -635,3 +635,7 @@ li{
     font-size: 8px;
     color: red;
 }
+
+@media screen and (min-width: 1380) {
+    
+}
